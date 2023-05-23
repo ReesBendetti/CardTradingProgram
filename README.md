@@ -1,2 +1,2 @@
-# ToBeCloned
-This repository will shortly be cloned
+# CardTradingProgram
+This repository will be very cool and work flawlessly the first time.
