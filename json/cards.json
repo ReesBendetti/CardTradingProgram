@@ -8,5 +8,7 @@
     "card-number": 1,
     "plyer-trivia": "How many championships does ruth have?",
     "rarity type": "exclusive",
-    "is-rookie": true
+    "is-rookie": true,
+    "number-total-cards": 1,
+    "total-cards-inventory": 1
 }]
