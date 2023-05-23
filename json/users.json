@@ -2,5 +2,7 @@
     "id": "454c210b-a771-4b17-9d28-5a68a3f91c6c",
     "username": "cardcollector512",
     "password": "SunriseMoondrop",
-    "email": "arealemail@fakedomain.edu"
+    "email": "arealemail@fakedomain.edu",
+    "coins": "15",
+    "cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf1"]
 }]
