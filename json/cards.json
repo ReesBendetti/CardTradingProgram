@@ -2,6 +2,11 @@
     "id": "9af47a4e-cae5-436e-ae1c-f995c9c2fbf1",
     "player-first-name": "George",
     "player-last-name": "Ruth",
-    "player-position": "outfielder"
-
+    "player-position": "outfielder",
+    "sports-league": "Baseball",
+    "team-name": "Yankees",
+    "card-number": 1,
+    "plyer-trivia": "How many championships does ruth have?",
+    "rarity type": "exclusive",
+    "is-rookie": true
 }]
