@@ -7,7 +7,7 @@ public class AccountList {
     private static AccountList accountList;
 
     private AccountList() {
-        
+        users = new ArrayList<>();
     }
 
     public static AccountList getInstance() {
