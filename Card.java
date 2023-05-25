@@ -12,8 +12,8 @@ public class Card {
     private ArrayList<User> users;
     private int numCardsTotal;
     private int numCardsInInventory;
-    public Card() {
-        
+    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie) {
+
     }
     public double getValue() {
         return 0.0;
