@@ -1,9 +1,8 @@
-public class BaseballCard {
-    public BaseballCard() {
+public class FootballCard {
+    public FootballCard() {
 
     }
     public double getValue() {
         return 0.0;
     }
-    
 }
