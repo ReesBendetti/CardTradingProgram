@@ -2,6 +2,6 @@
     "sender": "454c210b-a771-4b17-9d28-5a68a3f91c6c",
     "reciever": "591219f3-5549-4a0b-877d-d5aa0dd47efd",
     "sender-cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf1"],
-    "recipeint-cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf0"],
+    "receiver-cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf0"],
     "status": 0
 }]
