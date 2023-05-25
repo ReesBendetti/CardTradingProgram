@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 public class Card {
     private String playerFirstName;
     private String playerLastName;
@@ -12,6 +13,7 @@ public class Card {
     private ArrayList<User> users;
     private int numCardsTotal;
     private int numCardsInInventory;
+    private UUID id;
     public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie) {
 
     }
@@ -19,7 +21,6 @@ public class Card {
         return 0.0;
     }
     public User getOwner() {
-        User u = new User();
-        return u;
+        return null;
     }
 }
