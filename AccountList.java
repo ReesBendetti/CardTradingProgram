@@ -2,8 +2,6 @@
 
 import java.util.ArrayList;
 
-import json.User;
-
 public class AccountList {
     private ArrayList<User> users;
     private static AccountList accountList;
@@ -20,18 +18,18 @@ public class AccountList {
     }
 
     public boolean addUser(String username, String password, String email) {
-        
+        return true;
     }
 
     public boolean removeUser (String username) {
-
+        return true;
     }
 
     public User getUser(String username) {
-
+        return null;
     }
 
     public boolean editUser(User user, String username, String password, String email) {
-
+        return true;
     }
 }
