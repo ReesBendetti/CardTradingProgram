@@ -14,8 +14,38 @@ public class Card {
     private int numCardsTotal;
     private int numCardsInInventory;
     private UUID id;
-    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie) {
+    public Card(UUID id, String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, ArrayList<User> users, int numCardsTotal, int numCardsInventory) {
+        this.playerFirstName = playerFirstName;
+        this.playerFirstName = playerLastName;
+        this.playerPosition = playerPosition;
+        this.teamName = teamName;
+        this.playerStats = playerStats;
+        this.cardNumber = cardNumber;
+        this.playerTrivia = playerTrivia;
+        this.rarityType = rarityType;
+        this.isRookie = isRookie;
+        this.users = users;
+        this.numCardsTotal = numCardsTotal;
+        this.numCardsInInventory = numCardsInventory;
+        this.id = id;
+        
 
+    }
+
+    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, ArrayList<User> users, int numCardsTotal, int numCardsInventory) {
+        this.playerFirstName = playerFirstName;
+        this.playerFirstName = playerLastName;
+        this.playerPosition = playerPosition;
+        this.teamName = teamName;
+        this.playerStats = playerStats;
+        this.cardNumber = cardNumber;
+        this.playerTrivia = playerTrivia;
+        this.rarityType = rarityType;
+        this.isRookie = isRookie;
+        this.users = users;
+        this.numCardsTotal = numCardsTotal;
+        this.numCardsInInventory = numCardsInventory;
+        id = UUID.randomUUID();
     }
     public double getValue() {
         return 0.0;
