@@ -32,7 +32,7 @@ public class Card {
 
     }
 
-    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, ArrayList<User> users, int numCardsTotal, int numCardsInventory) {
+    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, int numCardsTotal, int numCardsInventory) {
         this.playerFirstName = playerFirstName;
         this.playerFirstName = playerLastName;
         this.playerPosition = playerPosition;
@@ -42,7 +42,6 @@ public class Card {
         this.playerTrivia = playerTrivia;
         this.rarityType = rarityType;
         this.isRookie = isRookie;
-        this.users = users;
         this.numCardsTotal = numCardsTotal;
         this.numCardsInInventory = numCardsInventory;
         id = UUID.randomUUID();
