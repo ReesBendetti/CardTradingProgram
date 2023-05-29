@@ -7,7 +7,7 @@ public class TradeProposal {
     private ArrayList<Card> receiverCards;
     private int status = 0;
 
-    public TradeProposal(User sender, User receiver, ArrayList<Card> senderCardd, ArrayList<Card> receiverCards){
+    public TradeProposal(User sender, User receiver, ArrayList<Card> senderCards, ArrayList<Card> receiverCards){
         this.sender = sender;
         this.receiver = receiver;
         this.senderCards = senderCards;

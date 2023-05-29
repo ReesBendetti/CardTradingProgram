@@ -36,6 +36,10 @@ public class DataLoader {
 
         return accounts;
     }
+    public static ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<User>();
+        return users;
+    }
 
     public static void main(String[] args){
         System.out.println("hi");

@@ -51,6 +51,7 @@ public class Card {
         return 0.0;
     }
     public User getOwner() {
-        return null;
+        User user = new User(playerFirstName, playerFirstName, playerFirstName);
+        return user;
     }
 }
