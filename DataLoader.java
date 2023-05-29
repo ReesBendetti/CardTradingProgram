@@ -1,11 +1,13 @@
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import java.util.ArrayList;
 
-public class DataLoader {
+public class DataLoader extends DataConstants {
     public static ArrayList<Card> getCards(){
         ArrayList<Card> cards = new ArrayList<Card>();
 
@@ -16,8 +18,9 @@ public class DataLoader {
 			
 			for(int i=0; i < cardsJSON.size(); i++) {
 				JSONObject cardJSON = (JSONObject)cardsJSON.get(i);
+                UUID cardID = UUID.fromString((String)cardJSON.get(CARD_ID));
 				String playerFirstName = (String)cardJSON.get(CARD_PLAYER_FIRST_NAME);
-				System.out.println(playerFirstName);
+				System.out.println("Test: " + cardID + " " + playerFirstName);
 				
 				//cards.add(new Card(...));
 			}
@@ -33,7 +36,7 @@ public class DataLoader {
 
     public static ArrayList<Account> getAccounts(){
         ArrayList<Account> accounts = new ArrayList<Account>();
-
+ 
         return accounts;
     }
     public static ArrayList<User> getUsers() {
@@ -42,6 +45,6 @@ public class DataLoader {
     }
 
     public static void main(String[] args){
-        System.out.println("hi");
+        DataLoader.getCards();
     }
 }
