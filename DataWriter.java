@@ -30,6 +30,7 @@ public class DataWriter extends DataConstants {
 	
 	public static JSONObject getCardJSON(Card card) {
 		JSONObject cardDetails = new JSONObject();
+      cardDetails.put(CARD_ID, card.getId().toString());
 		/*userDetails.put(USER_ID, user.getId().toString());
 		userDetails.put(USER_USER_NAME, user.getUserName());
 		userDetails.put(USER_FIRST_NAME, user.getFirstName());
