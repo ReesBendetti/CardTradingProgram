@@ -29,6 +29,10 @@ public class CardInventory {
         return false;
     }
 
+    public ArrayList<Card> getCards(){
+        return cards;
+    }
+
     public void removeCard(Card card) {
 
     }
