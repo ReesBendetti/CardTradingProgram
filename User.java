@@ -1,14 +1,16 @@
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class User {
+public class User extends Account {
     private ArrayList<Card> cardCollection;
     private ArrayList<TradeProposal> proposedTrades;
     private ArrayList<TradeProposal> receivedTrades;
     private int coins;
 
     public User(UUID id, String username, String password, String email, int coins, ArrayList<Card> cardCollection) {
-        
+        super(id, username, password, email);
+        this.coins = coins;
+        this.cardCollection = cardCollection;
     }
 
     public ArrayList<TradeProposal> getProposedTrades() {
@@ -24,10 +26,10 @@ public class User {
     }
 
     public void addCoins(int numCoins) {
-        numCoins = coins;
+        coins += numCoins;
     }
 
     public void removeCoins(int numCoins) {
-        
+        coins -= numCoins;
     }
 }

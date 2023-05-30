@@ -18,4 +18,20 @@ public class Account {
         this.password = password;
         this.email = email;
     }
+
+    public UUID getId(){
+        return id;
+    }
+
+    public String getUserName(){
+        return username;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String toString() {
+        return username;
+    }
 }

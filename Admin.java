@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.UUID;
 
+public class Admin extends Account {
 
-public class Admin {
-    
+    public Admin(UUID id, String username, String password, String email) {
+        super(id, username, password, email);
+    }
 }
