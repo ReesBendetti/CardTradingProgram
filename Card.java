@@ -5,11 +5,11 @@ public class Card {
     private String playerLastName;
     private String playerPosition;
     private String teamName;
+    private String sportsLeague;
     private int cardNumber;
     private String playerTrivia;
     private String rarityType;
     private Boolean isRookie;
-    private ArrayList<User> users;
     private int numCardsTotal;
     private int numCardsInInventory;
     private UUID id;
@@ -35,6 +35,7 @@ public class Card {
         this.playerFirstName = playerFirstName;
         this.playerFirstName = playerLastName;
         this.playerPosition = playerPosition;
+        this.sportsLeague = sportsLeague;
         this.teamName = teamName;
         this.cardNumber = cardNumber;
         this.playerTrivia = playerTrivia;
@@ -53,8 +54,49 @@ public class Card {
         return 0.0;
     }
     public User getOwner() {
-        User user = new User(playerFirstName, playerFirstName, playerFirstName);
+        User user = new User(id, playerFirstName, playerFirstName, playerFirstName, cardNumber, null);
         return user;
+    }
+    public String getFirstName() {
+        return playerFirstName;
+    }
+    public String getLastName() {
+        return playerLastName;
+    }
+    public String getPlayerPosition() {
+        return playerPosition;
+    }
+    public String getSportLeague() {
+        return sportsLeague;
+    }
+     /* 
+    public static final String CARD_TEAM_NAME = "team-name";
+    public static final String CARD_NUMBER = "card-number";
+    public static final String CARD_PLAYER_TRIVIA = "plyer-trivia";
+    public static final String CARD_RARITY_TYPE = "rarity type";
+    public static final String CARD_IS_ROOKIE = "is-rookie";
+    public static final String CARD_NUMBER_TOTAL_CARDS = "number-total-cards";
+    public static final String CARD_TOTAL_CARD_INVENTORY = "total-cards-inventory"; */
+    public String getTeamName() {
+        return teamName;
+    }
+    public int getCardNumber() {
+        return cardNumber;
+    }
+    public String getPlayerTrivia() {
+        return playerTrivia;
+    }
+    public String getRarityType() {
+        return rarityType;
+    }
+    public Boolean isRookie() {
+        return true;
+    }
+    public int getNumberCardsTotal() {
+        return numCardsTotal;
+    }
+    public int getNumberCardsInventory() {
+        return numCardsInInventory;
     }
 
     public String toString(){

@@ -31,13 +31,17 @@ public class DataWriter extends DataConstants {
 	public static JSONObject getCardJSON(Card card) {
 		JSONObject cardDetails = new JSONObject();
       cardDetails.put(CARD_ID, card.getId().toString());
-		/*userDetails.put(USER_ID, user.getId().toString());
-		userDetails.put(USER_USER_NAME, user.getUserName());
-		userDetails.put(USER_FIRST_NAME, user.getFirstName());
-		userDetails.put(USER_LAST_NAME, user.getLastName());
-		userDetails.put(USER_AGE, user.getAge());
-		userDetails.put(USER_PHONE_NUMBER, user.getPhoneNumber());*/
-        
+		cardDetails.put(CARD_PLAYER_FIRST_NAME, card.getFirstName());
+		cardDetails.put(CARD_PLAYER_LAST_NAME, card.getLastName());
+		cardDetails.put(CARD_PLAYER_POSITION, card.getPlayerPosition());
+		cardDetails.put(CARD_SPORTS_LEAGUE, card.getSportLeague());
+      cardDetails.put(CARD_TEAM_NAME, card.getTeamName());
+      cardDetails.put(CARD_NUMBER, card.getCardNumber());
+      cardDetails.put(CARD_PLAYER_TRIVIA, card.getPlayerTrivia());
+      cardDetails.put(CARD_RARITY_TYPE, card.getRarityType());
+      cardDetails.put(CARD_IS_ROOKIE, card.isRookie());
+      cardDetails.put(CARD_NUMBER_TOTAL_CARDS, card.getNumberCardsTotal());
+      cardDetails.put(CARD_TOTAL_CARD_INVENTORY, card.getNumberCardsInventory());
         return cardDetails;
 	}
 }
