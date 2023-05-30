@@ -16,14 +16,6 @@ public class DataLoader extends DataConstants {
 			JSONArray cardsJSON = (JSONArray)new JSONParser().parse(reader);
 			
 			for(int i=0; i < cardsJSON.size(); i++) {
-                /*private ArrayList<String> playerStats;
-    private int cardNumber;
-    private String playerTrivia;
-    private String rarityType;
-    private Boolean isRookie;
-    private ArrayList<User> users;
-    private int numCardsTotal;
-    private int numCardsInInventory;*/
 				JSONObject cardJSON = (JSONObject)cardsJSON.get(i);
                 UUID cardID = UUID.fromString((String)cardJSON.get(CARD_ID));
 				String playerFirstName = (String)cardJSON.get(CARD_PLAYER_FIRST_NAME);
@@ -60,9 +52,31 @@ public class DataLoader extends DataConstants {
  
         return accounts;
     }
+   
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
-        return users;
+        try {
+            FileReader reader = new FileReader(USERS_FILE_NAME);
+			JSONParser parser = new JSONParser();
+			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for(int i=0;i<usersJSON.size(); i++) {
+                JSONObject userJSON = (JSONObject)usersJSON.get(i);
+                String id = (String)userJSON.get(USER_ID);
+                String username = (String)userJSON.get(USER_USERNAME);
+                String password = (String)userJSON.get(USER_PASSWORD);
+                String email = (String)userJSON.get(USER_EMAIL);
+                String coins = (String)userJSON.get(USER_COINS);
+                String cards = (String)userJSON.get(USER_CARDS);
+                users.add(new User(username, password, email));
+            }
+            return users;
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }finally{
+            return users;
+        }
     }
 
     public static void main(String[] args){
