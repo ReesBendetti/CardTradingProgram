@@ -33,8 +33,12 @@ public class DataLoader extends DataConstants {
 
 				System.out.println("Test: " + cardID + " " + playerFirstName);
 				
-                if(sportsLeague.equalsIgnoreCase("baseball")){
-				    cards.add(new BaseballCard(cardID, playerFirstName, playerLastName, playerPosition, sportsLeague, playerTeamName, cardNumber, playerTrivia,rarityType, isRookie, numCardsTotal, numCardsInInventory));
+                if (sportsLeague.equalsIgnoreCase("baseball")) {
+				    cards.add(new BaseballCard(cardID, playerFirstName, playerLastName, playerPosition, sportsLeague, playerTeamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInInventory));
+                } else if (sportsLeague.equalsIgnoreCase("basketball")) {
+                    cards.add(new BasketballCard(cardID, playerFirstName, playerLastName, playerPosition, sportsLeague, playerTeamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInInventory));
+                } else if (sportsLeague.equalsIgnoreCase("football")) {
+                    cards.add(new FootballCard(cardID, playerFirstName, playerLastName, playerPosition, sportsLeague, playerTeamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInInventory));
                 }
 			}
 			
