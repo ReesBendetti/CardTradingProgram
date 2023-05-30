@@ -53,8 +53,8 @@ public class Card {
         return 0.0;
     }
     public User getOwner() {
-        User user = new User(playerFirstName, playerFirstName, playerFirstName);
-        return user;
+        // User user = new User(playerFirstName, playerFirstName, playerFirstName);
+        return null;
     }
 
     public String toString(){

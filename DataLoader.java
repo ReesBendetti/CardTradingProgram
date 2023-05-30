@@ -75,12 +75,12 @@ public class DataLoader extends DataConstants {
                 String password = (String)userJSON.get(USER_PASSWORD);
                 String email = (String)userJSON.get(USER_EMAIL);
                 int coins = ((Long)userJSON.get(USER_COINS)).intValue();
-                JSONArray cards = (JSONArray)userJSON.get(USER_CARDS);
+                JSONArray cardsJSON = (JSONArray)userJSON.get(USER_CARDS);
 
                 ArrayList<Card> cards = new ArrayList<Card>();
-                for (int j = 0; j < cards.size(); j++) {
-                    UUID cardID = UUID.fromString((String)cards.get(j));
-                    Card card = CardInventory.getInstance().getCardByUUID(cardID);
+                for (int j = 0; j < cardsJSON.size(); j++) {
+                    UUID cardID = UUID.fromString((String)cardsJSON.get(j));
+                    Card card = CardInventory.getInstance().getCardById(cardID);
                     cards.add(card);
                 }
 
@@ -100,10 +100,15 @@ public class DataLoader extends DataConstants {
     }
 
     public static void main(String[] args){
-        ArrayList<Card> cards = DataLoader.getCards();
+        // ArrayList<Card> cards = DataLoader.getCards();
 
-        for(Card card : cards){
-            System.out.println(card);
+        // for(Card card : cards){
+        //     System.out.println(card);
+        // }
+        ArrayList<User> users = DataLoader.getUsers();
+
+        for (User user: users) {
+            System.out.println(user);
         }
     }
 }
