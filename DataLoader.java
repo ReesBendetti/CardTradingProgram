@@ -78,6 +78,10 @@ public class DataLoader extends DataConstants {
             return users;
         }
     }
+    public static ArrayList<TradeProposal> getProposedTrade() {
+        ArrayList <TradeProposal> proposals = new ArrayList<TradeProposal>();
+        return proposals;
+    }
 
     public static void main(String[] args){
         DataLoader.getCards();
