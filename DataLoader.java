@@ -5,10 +5,9 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import java.util.ArrayList;
 
 public class DataLoader extends DataConstants {
-    public static ArrayList<Card> getCards(){
+    public static ArrayList<Card> getCards() {
         ArrayList<Card> cards = new ArrayList<Card>();
 
         try {
@@ -52,6 +51,8 @@ public class DataLoader extends DataConstants {
 		} finally {
             return cards;
         }
+
+        return cards;
     }
 
     public static ArrayList<Account> getAccounts(){
