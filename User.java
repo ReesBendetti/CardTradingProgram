@@ -11,6 +11,10 @@ public class User {
         
     }
 
+    public String toString() {
+        return "I am a user";
+    }
+
     public ArrayList<TradeProposal> getProposedTrades() {
         return proposedTrades;
     }

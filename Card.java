@@ -54,8 +54,13 @@ public class Card {
         return 0.0;
     }
     public User getOwner() {
+<<<<<<< HEAD
         User user = new User(id, playerFirstName, playerFirstName, playerFirstName, cardNumber, null);
         return user;
+=======
+        // User user = new User(playerFirstName, playerFirstName, playerFirstName);
+        return null;
+>>>>>>> 98488ddb56f5b9f36192bd00063b0b809852f453
     }
     public String getFirstName() {
         return playerFirstName;
