@@ -44,4 +44,8 @@ public class DataWriter extends DataConstants {
       cardDetails.put(CARD_TOTAL_CARD_INVENTORY, card.getNumberCardsInventory());
         return cardDetails;
 	}
+
+	public static void main(String[] args){
+		saveCards();
+	}
 }
