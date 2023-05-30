@@ -13,6 +13,10 @@ public class User extends Account {
         this.cardCollection = cardCollection;
     }
 
+    public String toString() {
+        return "I am a user";
+    }
+
     public ArrayList<TradeProposal> getProposedTrades() {
         return proposedTrades;
     }
