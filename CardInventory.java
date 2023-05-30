@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class CardInventory {
     private ArrayList<Card> cards;
@@ -33,6 +34,16 @@ public class CardInventory {
         return cards;
     }
 
+    public Card getCardById(UUID id){
+        for(Card card : cards){
+            if(card.getId().equals(id)){
+                return card;
+            }
+        }
+
+        return null;
+    }
+
     public void removeCard(Card card) {
 
     }
@@ -41,6 +52,6 @@ public class CardInventory {
     }
 
     public void saveCards(){
-        //Calls DataWriter save cards
+        DataWriter.saveCards();
     }
 }
