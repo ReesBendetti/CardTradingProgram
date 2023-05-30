@@ -74,7 +74,7 @@ public class DataLoader extends DataConstants {
         }
         catch(Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             return users;
         }
     }
