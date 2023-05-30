@@ -22,7 +22,7 @@ public class AccountList {
     }
 
     public boolean removeUser (String username) {
-        return true;
+        return false;
     }
 
     public User getUser(String username) {

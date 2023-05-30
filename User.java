@@ -11,19 +11,19 @@ public class User {
     }
 
     public ArrayList<TradeProposal> getProposedTrades() {
-        return null;
+        return proposedTrades;
     }
 
     public ArrayList<TradeProposal> getReceivedTrades() {
-        return null;
+        return receivedTrades;
     }
 
     public ArrayList<Card> getAllCards() {
-        return null;
+        return cardCollection;
     }
 
     public void addCoins(int numCoins) {
-        
+        numCoins = coins;
     }
 
     public void removeCoins(int numCoins) {
