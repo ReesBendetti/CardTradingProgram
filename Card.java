@@ -44,6 +44,11 @@ public class Card {
         this.numCardsInInventory = numCardsInventory;
         id = UUID.randomUUID();
     }
+
+    public UUID getId(){
+        return id;
+    }
+
     public double getValue() {
         return 0.0;
     }
