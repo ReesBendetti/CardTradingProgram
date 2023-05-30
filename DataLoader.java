@@ -21,19 +21,21 @@ public class DataLoader extends DataConstants {
 				String playerFirstName = (String)cardJSON.get(CARD_PLAYER_FIRST_NAME);
                 String playerLastName = (String)cardJSON.get(CARD_PLAYER_LAST_NAME);
                 String playerPosition = (String)cardJSON.get(CARD_PLAYER_POSITION);
+                String sportsLeague = (String)cardJSON.get(CARD_SPORTS_LEAGUE);
                 String playerTeamName = (String)cardJSON.get(CARD_TEAM_NAME);
-                int cardNumber = (int)cardJSON.get(CARD_NUMBER);
+                int cardNumber = ((Long)cardJSON.get(CARD_NUMBER)).intValue();
                 String playerTrivia = (String)cardJSON.get(CARD_PLAYER_TRIVIA);
                 String rarityType = (String)cardJSON.get(CARD_RARITY_TYPE);
-                Boolean isRookie = (Boolean)cardJSON.get(CARD_RARITY_TYPE);
-                int numCardsTotal = (int)cardJSON.get(CARD_NUMBER_TOTAL_CARDS);
-                int numCardsInInventory = (int)cardJSON.get(CARD_TOTAL_CARD_INVENTORY);
+                Boolean isRookie = getBoolean((String)cardJSON.get(CARD_RARITY_TYPE));
+                int numCardsTotal = ((Long)cardJSON.get(CARD_NUMBER_TOTAL_CARDS)).intValue();
+                int numCardsInInventory = ((Long)cardJSON.get(CARD_TOTAL_CARD_INVENTORY)).intValue();
 
 
 				System.out.println("Test: " + cardID + " " + playerFirstName);
 				
-				cards.add(new Card(cardID, playerFirstName, playerLastName, playerPosition, playerTeamName, rarityType, cardsJSON, cardNumber, playerTrivia,
-                                    rarityType, isRookie, cardsJSON, numCardsTotal, numCardsInInventory));
+                if(sportsLeague.equalsIgnoreCase("baseball")){
+				    cards.add(new BaseballCard(cardID, playerFirstName, playerLastName, playerPosition, sportsLeague, playerTeamName, cardNumber, playerTrivia,rarityType, isRookie, numCardsTotal, numCardsInInventory));
+                }
 			}
 			
 			return cards;
@@ -43,8 +45,10 @@ public class DataLoader extends DataConstants {
 		} finally {
             return cards;
         }
+    }
 
-        return cards;
+    private static boolean getBoolean(String data){
+        return data.equalsIgnoreCase("true");
     }
 
     public static ArrayList<Account> getAccounts(){
@@ -84,6 +88,10 @@ public class DataLoader extends DataConstants {
     }
 
     public static void main(String[] args){
-        DataLoader.getCards();
+        ArrayList<Card> cards = DataLoader.getCards();
+
+        for(Card card : cards){
+            System.out.println(card);
+        }
     }
 }

@@ -14,18 +14,15 @@ public class Card {
     private int numCardsInInventory;
     private UUID id;
 
-
-    //deleted player stats -Rees
-    public Card(UUID id, String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, ArrayList<User> users, int numCardsTotal, int numCardsInventory) {
+    public Card(UUID id, String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, int numCardsTotal, int numCardsInventory) {
         this.playerFirstName = playerFirstName;
-        this.playerFirstName = playerLastName;
+        this.playerLastName = playerLastName;
         this.playerPosition = playerPosition;
         this.teamName = teamName;
         this.cardNumber = cardNumber;
         this.playerTrivia = playerTrivia;
         this.rarityType = rarityType;
         this.isRookie = isRookie;
-        this.users = users;
         this.numCardsTotal = numCardsTotal;
         this.numCardsInInventory = numCardsInventory;
         this.id = id;
@@ -53,5 +50,9 @@ public class Card {
     public User getOwner() {
         User user = new User(playerFirstName, playerFirstName, playerFirstName);
         return user;
+    }
+
+    public String toString(){
+        return playerFirstName + " " + playerLastName;
     }
 }
