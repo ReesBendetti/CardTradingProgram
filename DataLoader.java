@@ -68,15 +68,23 @@ public class DataLoader extends DataConstants {
 			JSONParser parser = new JSONParser();
 			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
 
-            for(int i=0;i<usersJSON.size(); i++) {
+            for (int i = 0; i < usersJSON.size(); i++) {
                 JSONObject userJSON = (JSONObject)usersJSON.get(i);
-                String id = (String)userJSON.get(USER_ID);
+                UUID id = UUID.fromString((String)userJSON.get(USER_ID));
                 String username = (String)userJSON.get(USER_USERNAME);
                 String password = (String)userJSON.get(USER_PASSWORD);
                 String email = (String)userJSON.get(USER_EMAIL);
-                String coins = (String)userJSON.get(USER_COINS);
-                String cards = (String)userJSON.get(USER_CARDS);
-                users.add(new User(username, password, email));
+                int coins = ((Long)userJSON.get(USER_COINS)).intValue();
+                JSONArray cards = (JSONArray)userJSON.get(USER_CARDS);
+
+                ArrayList<Card> cards = new ArrayList<Card>();
+                for (int j = 0; j < cards.size(); j++) {
+                    UUID cardID = UUID.fromString((String)cards.get(j));
+                    Card card = CardInventory.getInstance().getCardByUUID(cardID);
+                    cards.add(card);
+                }
+
+                users.add(new User(id, username, password, email, coins, cards));
             }
             return users;
         }
