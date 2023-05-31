@@ -5,6 +5,8 @@ public class Account {
     private String username;
     private String password;
     private String email;
+    private int coins;
+    private String cards;
 
     public Account(UUID id, String username, String password, String email) {
         this.id = id;
@@ -29,6 +31,15 @@ public class Account {
 
     public String getEmail(){
         return email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public int getCoins() {
+        return coins;
+    }
+    public String getCards() {
+        return cards;
     }
 
     public String toString() {

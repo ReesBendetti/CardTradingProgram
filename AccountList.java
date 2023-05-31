@@ -24,8 +24,11 @@ public class AccountList {
     public boolean removeUser (String username) {
         return false;
     }
-
-    public User getUser(String username) {
+    //i think this must be type arraylist<user> and not User
+    /*public User getUser(String username) {
+        return null;
+    }*/
+    public ArrayList<User> getUser(String username) {
         return null;
     }
 

@@ -20,6 +20,7 @@ public class Card {
         this.playerPosition = playerPosition;
         this.teamName = teamName;
         this.cardNumber = cardNumber;
+        this.sportsLeague = sportsLeague;
         this.playerTrivia = playerTrivia;
         this.rarityType = rarityType;
         this.isRookie = isRookie;
@@ -54,13 +55,7 @@ public class Card {
         return 0.0;
     }
     public User getOwner() {
-<<<<<<< HEAD
-        User user = new User(id, playerFirstName, playerFirstName, playerFirstName, cardNumber, null);
-        return user;
-=======
-        // User user = new User(playerFirstName, playerFirstName, playerFirstName);
         return null;
->>>>>>> 98488ddb56f5b9f36192bd00063b0b809852f453
     }
     public String getFirstName() {
         return playerFirstName;
@@ -74,14 +69,6 @@ public class Card {
     public String getSportLeague() {
         return sportsLeague;
     }
-     /* 
-    public static final String CARD_TEAM_NAME = "team-name";
-    public static final String CARD_NUMBER = "card-number";
-    public static final String CARD_PLAYER_TRIVIA = "plyer-trivia";
-    public static final String CARD_RARITY_TYPE = "rarity type";
-    public static final String CARD_IS_ROOKIE = "is-rookie";
-    public static final String CARD_NUMBER_TOTAL_CARDS = "number-total-cards";
-    public static final String CARD_TOTAL_CARD_INVENTORY = "total-cards-inventory"; */
     public String getTeamName() {
         return teamName;
     }

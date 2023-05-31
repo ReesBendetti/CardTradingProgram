@@ -11,7 +11,6 @@ public class DataWriter extends DataConstants {
 		CardInventory inventory = CardInventory.getInstance();
 		ArrayList<Card> cards = inventory.getCards();
 		JSONArray jsonCards = new JSONArray();
-		
 		//creating all the json objects
 		for(int i=0; i< cards.size(); i++) {
 			jsonCards.add(getCardJSON(cards.get(i)));
@@ -44,8 +43,41 @@ public class DataWriter extends DataConstants {
       cardDetails.put(CARD_TOTAL_CARD_INVENTORY, card.getNumberCardsInventory());
         return cardDetails;
 	}
+   
+   public static void saveAccounts() {
+		AccountList list = AccountList.getInstance();
+		ArrayList<User> users = list.getUser(null);
+		JSONArray jsonUsers = new JSONArray();
+		
+		//creating all the json objects
+		for(int i=0; i< users.size(); i++) {
+			jsonUsers.add(getUserJSON(users.get(i)));
+		}
+		
+		//Write JSON file
+        try (FileWriter file = new FileWriter(USERS_FILE_NAME)) {
+ 
+            file.write(jsonUsers.toJSONString());
+            file.flush();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+   public static JSONObject getUserJSON(User user) {
+		JSONObject userDetails = new JSONObject();
+      userDetails.put(USER_ID, user.getId().toString());
+		userDetails.put(USER_USERNAME, user.getUserName());
+      userDetails.put(USER_PASSWORD, user.getPassword());
+		userDetails.put(USER_EMAIL, user.getEmail());
+		userDetails.put(USER_COINS, user.getCoins());
+		userDetails.put(USER_CARDS, user.getCards());
+      return userDetails;
+   }
 
 	public static void main(String[] args){
 		saveCards();
+      saveAccounts();
+      //CardInventory inventory = CardInventory.getInstance();
 	}
 }

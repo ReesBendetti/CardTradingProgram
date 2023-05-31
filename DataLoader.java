@@ -26,7 +26,7 @@ public class DataLoader extends DataConstants {
                 int cardNumber = ((Long)cardJSON.get(CARD_NUMBER)).intValue();
                 String playerTrivia = (String)cardJSON.get(CARD_PLAYER_TRIVIA);
                 String rarityType = (String)cardJSON.get(CARD_RARITY_TYPE);
-                Boolean isRookie = getBoolean((String)cardJSON.get(CARD_RARITY_TYPE));
+                Boolean isRookie = (boolean)cardJSON.get(CARD_IS_ROOKIE);
                 int numCardsTotal = ((Long)cardJSON.get(CARD_NUMBER_TOTAL_CARDS)).intValue();
                 int numCardsInInventory = ((Long)cardJSON.get(CARD_TOTAL_CARD_INVENTORY)).intValue();
 
