@@ -6,6 +6,26 @@ public class AccountList {
     private ArrayList<Admin> admins;
     private static AccountList accountList;
 
+    public boolean loginUser(UUID id, String username, String password) {
+        for (User user : users) {
+            if (user.getId().equals(id) && user.getUserName().equalsIgnoreCase(username) && user.getUserName().equalsIgnoreCase(password)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public boolean loginAdmin(UUID id, String username, String password) {
+        for (Admin admin : admins) {
+            if (admin.getId().equals(id) && admin.getUserName().equalsIgnoreCase(username) && admin.getUserName().equalsIgnoreCase(password)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
     private AccountList() {
         users = DataLoader.getUsers();
         admins = DataLoader.getAdmin();
