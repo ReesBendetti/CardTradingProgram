@@ -83,8 +83,12 @@ public class DataLoader extends DataConstants {
                     Card card = CardInventory.getInstance().getCardById(cardID);
                     cards.add(card);
                 }
+                User user = new User(id, username, password, email, coins, cards);
 
-                users.add(new User(id, username, password, email, coins, cards));
+                for(Card card : cards){
+                    card.addUser(user);
+                }
+                users.add(user);
             }
             return users;
         }
@@ -126,10 +130,10 @@ public class DataLoader extends DataConstants {
     }
 
     public static void main(String[] args) {
-        ArrayList<User> users = DataLoader.getUsers();
+        ArrayList<Admin> admins = DataLoader.getAdmin();
 
-        for (User user: users) {
-            System.out.println(user);
+        for (Admin admin: admins) {
+            System.out.println(admin);
         }
     }
 }
