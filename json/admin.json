@@ -1,1 +1,13 @@
-[{"idAdmin":"f57e56fe-d23c-4e9a-ab38-7dd682f777bc","usernameAdmin":"ReesBendetti","passwordAdmin":"amazingpassword12345","emailAdmin":"12345@fakedomain.edu"},{"idAdmin":"c7aed6b1-a4e9-4d46-a63f-f301ba5fba62","usernameAdmin":"Mark9002314","passwordAdmin":"incrediblepassword54321","emailAdmin":"12345@realdomain.edu"}]
+[{
+    "idAdmin": "f57e56fe-d23c-4e9a-ab38-7dd682f777bc",
+    "usernameAdmin": "ReesBendetti",
+    "passwordAdmin": "amazingpassword12345",
+    "emailAdmin": "12345@fakedomain.edu"
+},
+{
+    "idAdmin": "c7aed6b1-a4e9-4d46-a63f-f301ba5fba62",
+    "usernameAdmin": "Mark9002314",
+    "passwordAdmin": "incrediblepassword54321",
+    "emailAdmin": "12345@realdomain.edu"
+}
+]
