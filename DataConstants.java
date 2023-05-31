@@ -1,5 +1,6 @@
 public class DataConstants {
     public static final String USERS_FILE_NAME = "json/users.json";
+    public static final String ADMIN_FILE_NAME = "json/admin.json";
     public static final String CARDS_FILE_NAME = "json/cards.json";
     public static final String PROPOSALS_FILE_NAME = "json/proposal.json";
 
@@ -10,6 +11,12 @@ public class DataConstants {
     public static final String USER_EMAIL = "email";
     public static final String USER_COINS = "coins";
     public static final String USER_CARDS = "cards";
+
+    //Admin constants
+    public static final String ADMIN_ID = "idAdmin";
+    public static final String ADMIN_USERNAME = "usernameAdmin";
+    public static final String ADMIN_PASSWORD = "passwordAdmin";
+    public static final String ADMIN_EMAIL = "emailAdmin";
 
     //Card constants
     public static final String CARD_ID = "id";

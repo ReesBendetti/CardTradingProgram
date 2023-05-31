@@ -94,17 +94,38 @@ public class DataLoader extends DataConstants {
             return users;
         }
     }
+
+    public static ArrayList<Admin> getAdmin() {
+        ArrayList<Admin> admins = new ArrayList<Admin>();
+        try {
+            FileReader reader = new FileReader(ADMIN_FILE_NAME);
+			JSONParser parser = new JSONParser();
+			JSONArray adminsJSON = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < adminsJSON.size(); i++) {
+                JSONObject adminJSON = (JSONObject)adminsJSON.get(i);
+                UUID id = UUID.fromString((String)adminJSON.get(ADMIN_ID));
+                String username = (String)adminJSON.get(ADMIN_USERNAME);
+                String password = (String)adminJSON.get(ADMIN_PASSWORD);
+                String email = (String)adminJSON.get(ADMIN_EMAIL);
+
+                admins.add(new Admin(id, username, password, email));
+            }
+            return admins;
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            return admins;
+        }
+    }
+
     public static ArrayList<TradeProposal> getProposedTrade() {
         ArrayList <TradeProposal> proposals = new ArrayList<TradeProposal>();
         return proposals;
     }
 
-    public static void main(String[] args){
-        // ArrayList<Card> cards = DataLoader.getCards();
-
-        // for(Card card : cards){
-        //     System.out.println(card);
-        // }
+    public static void main(String[] args) {
         ArrayList<User> users = DataLoader.getUsers();
 
         for (User user: users) {
