@@ -8,7 +8,7 @@ public class AccountList {
 
     public User loginUser(String username, String password) {
         for (User user : users) {
-            if (user.getUserName().equalsIgnoreCase(username) && user.getUserName().equalsIgnoreCase(password)) {
+            if (user.getUserName().equalsIgnoreCase(username) && user.getPassword().equalsIgnoreCase(password)) {
                 return user;
             }
         }
