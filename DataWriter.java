@@ -85,10 +85,36 @@ public class DataWriter extends DataConstants {
 		userDetails.put(USER_CARDS, jsonUsercards);
       return userDetails;
    }
+   public static void saveAdmins() {
+		ArrayList<Admin> admins = DataLoader.getAdmin();
+		JSONArray jsonAdmins = new JSONArray();
+		
+		for(int i=0; i< admins.size(); i++) {
+			jsonAdmins.add(getAdminJSON(admins.get(i)));
+		}
+		
+        try (FileWriter file = new FileWriter(ADMIN_FILE_NAME)) {
+ 
+            file.write(jsonAdmins.toJSONString());
+            file.flush();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+   public static JSONObject getAdminJSON(Admin admin) {
+		JSONObject adminDetails = new JSONObject();
+      adminDetails.put(ADMIN_ID, admin.getId().toString());
+		adminDetails.put(ADMIN_USERNAME, admin.getUserName());
+      adminDetails.put(ADMIN_PASSWORD, admin.getPassword());
+		adminDetails.put(ADMIN_EMAIL, admin.getEmail());
+      return adminDetails;
+   }
 
 	public static void main(String[] args){
-		saveCards();
-      saveAccounts();
+		//saveCards();
+      //saveAccounts();
+      saveAdmins();
       //CardInventory inventory = CardInventory.getInstance();
 	}
 }
