@@ -14,6 +14,7 @@ public class Account {
     }
 
     public Account(String username, String password, String email) {
+        id = UUID.randomUUID();
         this.username = username;
         this.password = password;
         this.email = email;

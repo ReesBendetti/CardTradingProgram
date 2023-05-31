@@ -45,9 +45,9 @@ public class DataWriter extends DataConstants {
 	}
    
    public static void saveAccounts() {
-		//AccountList list = AccountList.getInstance();
-		//ArrayList<User> users = list.getUser(null);
-		ArrayList<User> users = DataLoader.getUsers();
+		AccountList list = AccountList.getInstance();
+		ArrayList<User> users = list.getUsers();
+		//ArrayList<User> users = DataLoader.getUsers();
 		JSONArray jsonUsers = new JSONArray();
 		
 		//creating all the json objects
@@ -112,9 +112,9 @@ public class DataWriter extends DataConstants {
    }
 
 	public static void main(String[] args){
-		saveCards();
+		//saveCards();
       saveAccounts();
-      saveAdmins();
+      //saveAdmins();
       //CardInventory inventory = CardInventory.getInstance();
 	}
 }
