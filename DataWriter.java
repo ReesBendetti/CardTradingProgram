@@ -77,8 +77,12 @@ public class DataWriter extends DataConstants {
 		//create a json array
 		//loop through user cards
 		//add each item to the json array
-		//then add the json array to user details.
-		userDetails.put(USER_CARDS, user.getCards());
+		//then add the json array to user details
+      JSONArray jsonUsercards = new JSONArray();
+      for(int i = 0; i<usersCards.size(); i++) {
+         jsonUsercards.add(usersCards.get(i).getId().toString());
+      }
+		userDetails.put(USER_CARDS, jsonUsercards);
       return userDetails;
    }
 

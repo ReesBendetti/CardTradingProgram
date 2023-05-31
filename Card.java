@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.UUID;
 public class Card {
+    private UUID id;
     private String playerFirstName;
     private String playerLastName;
     private String playerPosition;
@@ -12,7 +13,8 @@ public class Card {
     private Boolean isRookie;
     private int numCardsTotal;
     private int numCardsInInventory;
-    private UUID id;
+    private ArrayList<User> users = new ArrayList<User>();
+    
 
     public Card(UUID id, String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, int numCardsTotal, int numCardsInventory) {
         this.playerFirstName = playerFirstName;
@@ -27,8 +29,6 @@ public class Card {
         this.numCardsTotal = numCardsTotal;
         this.numCardsInInventory = numCardsInventory;
         this.id = id;
-        
-
     }
 
     //deleted player stats -Rees
@@ -117,6 +117,10 @@ public class Card {
         line += "*\n";
         return line;
     } 
+
+    public void addUser(User user){
+        users.add(user);
+    }
 
     public String toString(){
         String cardDisplay = "";
