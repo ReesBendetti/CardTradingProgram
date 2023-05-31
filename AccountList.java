@@ -31,6 +31,13 @@ public class AccountList {
         return null;
     }
 
+    public User getUserById(UUID id){
+    }
+
+    public Admin getAdminById(UUID id){
+        
+    }
+
     public boolean removeUser (String username) {
         return false;
     }
