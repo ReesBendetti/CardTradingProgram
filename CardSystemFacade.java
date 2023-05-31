@@ -4,6 +4,7 @@ import java.util.List;
 public class CardSystemFacade {
     private static CardSystemFacade cardSystem;
     private User user;
+    private Admin admin;
 
     private CardSystemFacade(){
 
@@ -26,9 +27,9 @@ public class CardSystemFacade {
     }
 
     public boolean loginAdmin(String userName, String password){
-        user = AccountList.getInstance().loginAdmin(userName, password);
+        admin = AccountList.getInstance().loginAdmin(userName, password);
 
-        if(user == null){
+        if(admin == null){
             return false;
         }
         return true;
