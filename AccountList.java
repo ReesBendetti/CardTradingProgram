@@ -36,8 +36,13 @@ public class AccountList {
         return accountList;
     }
 
-    public boolean addUser(UUID id, String username, String password, String email, int coins, ArrayList<Card> cardCollection) {
-        users.add(new User(id, username, password, email, coins, cardCollection));
+    public boolean addUser(String username, String password, String email) {
+        for(int i = 0; i<users.size();i++) {
+            if(users.get(i).getUserName().equalsIgnoreCase(username)) {
+                return false;
+            }
+        }
+        users.add(new User(username, password, email));
         return true;
     }
 
@@ -47,6 +52,9 @@ public class AccountList {
     }
 
     public ArrayList<User> getUser(String username) {
+        return users;
+    }
+    public ArrayList<User> getUsers() {
         return users;
     }
 

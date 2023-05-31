@@ -6,13 +6,18 @@ public class User extends Account {
     private ArrayList<TradeProposal> proposedTrades;
     private ArrayList<TradeProposal> receivedTrades;
     private int coins;
+    private static final int COIN_COUNT = 25;
 
     public User(UUID id, String username, String password, String email, int coins, ArrayList<Card> cardCollection) {
         super(id, username, password, email);
         this.coins = coins;
         this.cardCollection = cardCollection;
     }
+    public User(String username, String password, String email) {
+        super(username, password, email);
+        coins = COIN_COUNT;
 
+    }
     public String toString() {
         return "I am a user";
     }
