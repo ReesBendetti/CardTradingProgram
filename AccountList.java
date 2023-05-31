@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class AccountList {
@@ -28,26 +27,39 @@ public class AccountList {
     }
 
     public ArrayList<User> getUser(String username) {
+        return users;
+    }
+
+    public ArrayList<Admin> getAdmin(String username) {
+        return admins;
+    }
+
+    public User getUserById(UUID id) {
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        
         return null;
     }
 
-    public User getUserById(UUID id){
+    public Admin getAdminById(UUID id) {
+        for (Admin admin : admins) {
+            if (admin.getId().equals(id)) {
+                return admin;
+            }
+        }
+        
+        return null;
     }
 
-    public Admin getAdminById(UUID id){
+    public void removeUser (String username) {
         
     }
 
-    public boolean removeUser (String username) {
-        return false;
-    }
-
-    public ArrayList<User> getAdmin(String username) {
-        return null;
-    }
-
-    public boolean removeAdmin (String username) {
-        return false;
+    public void removeAdmin (String username) {
+        
     }
 
     public boolean editUser(User user, String username, String password, String email) {
