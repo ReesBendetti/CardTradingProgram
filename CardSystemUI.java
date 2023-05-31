@@ -67,8 +67,13 @@ public class CardSystemUI {
             String userName = getString("username");
             String password = getString("password");
 
-            if(cardSystem.loginUser(userName, password)){
-                System.out.println("You've successfully logged in.");
+            if (cardSystem.loginUser(userName, password)) {
+                System.out.println("You've successfully logged in as a User.");
+                timeout();
+                clear();
+                return true;
+            } else if (cardSystem.loginAdmin(userName, password)) {
+                System.out.println("You've successfully logged in as an Admin.");
                 timeout();
                 clear();
                 return true;
