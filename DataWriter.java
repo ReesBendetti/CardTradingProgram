@@ -45,8 +45,9 @@ public class DataWriter extends DataConstants {
 	}
    
    public static void saveAccounts() {
-		AccountList list = AccountList.getInstance();
-		ArrayList<User> users = list.getUser(null);
+		//AccountList list = AccountList.getInstance();
+		//ArrayList<User> users = list.getUser(null);
+		ArrayList<User> users = DataLoader.getUsers();
 		JSONArray jsonUsers = new JSONArray();
 		
 		//creating all the json objects
