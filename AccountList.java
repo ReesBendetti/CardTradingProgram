@@ -36,14 +36,14 @@ public class AccountList {
         return accountList;
     }
 
-    public boolean addUser(String username, String password, String email) {
+    public User addUser(String username, String password, String email) {
         for(int i = 0; i<users.size();i++) {
             if(users.get(i).getUserName().equalsIgnoreCase(username)) {
-                return false;
+                return null;
             }
         }
-        users.add(new User(username, password, email));
-        return true;
+        User user = new User(username, password, email);
+        return user;
     }
 
     public boolean addAdmin(UUID id, String username, String password, String email) {

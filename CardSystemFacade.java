@@ -36,7 +36,12 @@ public class CardSystemFacade {
     }
 
     public boolean signUp(String userName, String password, String email) {
-        return AccountList.getInstance().addUser(userName, password, email);
+        user =  AccountList.getInstance().addUser(userName, password, email);
+
+        if(user == null){
+            return false;
+        }
+        return true;
     }
 
     public void signOut() {
