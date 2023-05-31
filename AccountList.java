@@ -6,24 +6,24 @@ public class AccountList {
     private ArrayList<Admin> admins;
     private static AccountList accountList;
 
-    public boolean loginUser(UUID id, String username, String password) {
+    public User loginUser(String username, String password) {
         for (User user : users) {
-            if (user.getId().equals(id) && user.getUserName().equalsIgnoreCase(username) && user.getUserName().equalsIgnoreCase(password)) {
-                return true;
+            if (user.getUserName().equalsIgnoreCase(username) && user.getUserName().equalsIgnoreCase(password)) {
+                return user;
             }
         }
         
-        return false;
+        return null;
     }
 
-    public boolean loginAdmin(UUID id, String username, String password) {
+    public Admin loginAdmin(String username, String password) {
         for (Admin admin : admins) {
-            if (admin.getId().equals(id) && admin.getUserName().equalsIgnoreCase(username) && admin.getUserName().equalsIgnoreCase(password)) {
-                return true;
+            if (admin.getUserName().equalsIgnoreCase(username) && admin.getUserName().equalsIgnoreCase(password)) {
+                return admin;
             }
         }
         
-        return false;
+        return null;
     }
 
     private AccountList() {
