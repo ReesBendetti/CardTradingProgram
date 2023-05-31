@@ -1,16 +1,1 @@
-[{
-    "id": "454c210b-a771-4b17-9d28-5a68a3f91c6c",
-    "username": "cardcollector512",
-    "password": "SunriseMoondrop",
-    "email": "arealemail@fakedomain.edu",
-    "coins": 15,
-    "cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf1"]
-},
-{
-    "id": "454c290b-a771-4b17-hH89-5a68a3f91c6c",
-    "username": "adventuringcapitalist",
-    "password": "$$moneymoneymoneymoney$$",
-    "email": "afakeemail@realdomain.edu",
-    "coins": 25,
-    "cards": ["cc5bf60e-96f7-4133-a4dd-bca18cc25366", "833bd717-3e76-4a24-8229-818bb2ee5171"]
-}]
+[{"password":"SunriseMoondrop","cards":["9af47a4e-cae5-436e-ae1c-f995c9c2fbf1"],"coins":15,"id":"454c210b-a771-4b17-9d28-5a68a3f91c6c","email":"arealemail@fakedomain.edu","username":"cardcollector512"}]

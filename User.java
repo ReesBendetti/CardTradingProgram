@@ -25,7 +25,7 @@ public class User extends Account {
         return receivedTrades;
     }
 
-    public ArrayList<Card> getAllCards() {
+    public ArrayList<Card> getCards() {
         return cardCollection;
     }
 
@@ -35,5 +35,8 @@ public class User extends Account {
 
     public void removeCoins(int numCoins) {
         coins -= numCoins;
+    }
+    public int getCoins() {
+        return coins;
     }
 }
