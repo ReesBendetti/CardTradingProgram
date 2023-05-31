@@ -2,7 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CardSystemFacade {
+    private static CardSystemFacade cardSystem;
     private User user;
+
+    private CardSystemFacade(){
+
+    }
+
+    public static CardSystemFacade getInstance(){
+        if(cardSystem == null){
+            cardSystem = new CardSystemFacade();
+        }
+        return cardSystem;
+    }
 
     public boolean login(String userName, String password) {
         return true;
@@ -58,5 +70,9 @@ public class CardSystemFacade {
 
     public int getCurrentCoinCount() {
         return 0;
+    }
+
+    public ArrayList<Card> getMyCards(){
+        return CardInventory.getInstance().getCards();
     }
 }

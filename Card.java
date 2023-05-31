@@ -91,7 +91,42 @@ public class Card {
         return numCardsInInventory;
     }
 
+    private String getStarLine(){
+        String line = "";
+        for(int i=0; i < 30; i++){
+            line += "*";
+        }
+        return line + "\n";
+    }
+
+    private String getSpaces(int count){
+        String line = "";
+        for(int i=0; i < count; i++){
+            line += " ";
+        }
+        return line;
+    }
+
+    private String getLine(String data){
+        String line = "*";
+        int extra = 28 - data.length();
+        int leadingSpaces = extra / 2;
+        int trailingSpaces = extra - leadingSpaces;
+
+        line += getSpaces(leadingSpaces) + data + getSpaces(trailingSpaces);
+        line += "*\n";
+        return line;
+    } 
+
     public String toString(){
-        return playerFirstName + " " + playerLastName;
+        String cardDisplay = "";
+        cardDisplay += getStarLine();
+        cardDisplay += getLine(playerFirstName + " " + playerLastName);
+        cardDisplay += getLine(playerPosition);
+        cardDisplay += getLine(sportsLeague);
+
+        cardDisplay += getStarLine();
+
+        return cardDisplay;
     }
 }
