@@ -17,10 +17,20 @@ public class CardSystemFacade {
     }
 
     public boolean loginUser(String userName, String password) {
+        user = AccountList.getInstance().loginUser(userName, password);
+
+        if(user == null){
+            return false;
+        }
         return true;
     }
 
     public boolean loginAdmin(String userName, String password){
+        user = AccountList.getInstance().loginAdmin(userName, password);
+
+        if(user == null){
+            return false;
+        }
         return true;
     }
 
