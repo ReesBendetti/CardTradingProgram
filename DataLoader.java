@@ -112,7 +112,7 @@ public class DataLoader extends DataConstants {
                 String username = (String)adminJSON.get(ADMIN_USERNAME);
                 String password = (String)adminJSON.get(ADMIN_PASSWORD);
                 String email = (String)adminJSON.get(ADMIN_EMAIL);
-
+                
                 admins.add(new Admin(id, username, password, email));
             }
             return admins;

@@ -1,11 +1,30 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class AccountList {
     private ArrayList<User> users;
     private ArrayList<Admin> admins;
     private static AccountList accountList;
+
+    public User loginUser(String username, String password) {
+        for (User user : users) {
+            if (user.getUserName().equalsIgnoreCase(username) && user.getUserName().equalsIgnoreCase(password)) {
+                return user;
+            }
+        }
+        
+        return null;
+    }
+
+    public Admin loginAdmin(String username, String password) {
+        for (Admin admin : admins) {
+            if (admin.getUserName().equalsIgnoreCase(username) && admin.getUserName().equalsIgnoreCase(password)) {
+                return admin;
+            }
+        }
+        
+        return null;
+    }
 
     private AccountList() {
         users = DataLoader.getUsers();
@@ -28,26 +47,39 @@ public class AccountList {
     }
 
     public ArrayList<User> getUser(String username) {
+        return users;
+    }
+
+    public ArrayList<Admin> getAdmin(String username) {
+        return admins;
+    }
+
+    public User getUserById(UUID id) {
+        for (User user : users) {
+            if (user.getId().equals(id)) {
+                return user;
+            }
+        }
+        
         return null;
     }
 
-    public User getUserById(UUID id){
+    public Admin getAdminById(UUID id) {
+        for (Admin admin : admins) {
+            if (admin.getId().equals(id)) {
+                return admin;
+            }
+        }
+        
+        return null;
     }
 
-    public Admin getAdminById(UUID id){
+    public void removeUser (String username) {
         
     }
 
-    public boolean removeUser (String username) {
-        return false;
-    }
-
-    public ArrayList<User> getAdmin(String username) {
-        return null;
-    }
-
-    public boolean removeAdmin (String username) {
-        return false;
+    public void removeAdmin (String username) {
+        
     }
 
     public boolean editUser(User user, String username, String password, String email) {
