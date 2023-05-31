@@ -52,7 +52,7 @@ public class CardInventory {
         return cards;
     }
 
-    public void saveCards(){
+    public void save(){
         DataWriter.saveCards();
     }
 }

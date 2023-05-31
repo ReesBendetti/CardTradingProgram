@@ -27,6 +27,7 @@ public class CardSystemUI {
 
             if(menuChoice == mainMenuOptions.length - 1){
                 System.out.println("Good bye and have a nice day.");
+                cardSystem.logout();
                 return;
             }
 

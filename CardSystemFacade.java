@@ -88,6 +88,11 @@ public class CardSystemFacade {
     }
 
     public ArrayList<Card> getMyCards(){
-        return CardInventory.getInstance().getCards();
+        return user.getCards();
+    }
+
+    public void logout(){
+        AccountList.getInstance().save();
+        CardInventory.getInstance().save();
     }
 }

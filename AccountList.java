@@ -18,7 +18,7 @@ public class AccountList {
 
     public Admin loginAdmin(String username, String password) {
         for (Admin admin : admins) {
-            if (admin.getUserName().equalsIgnoreCase(username) && admin.getUserName().equalsIgnoreCase(password)) {
+            if (admin.getUserName().equalsIgnoreCase(username) && admin.getPassword().equalsIgnoreCase(password)) {
                 return admin;
             }
         }
@@ -84,5 +84,10 @@ public class AccountList {
 
     public boolean editUser(User user, String username, String password, String email) {
         return true;
+    }
+
+    public void save(){
+        DataWriter.saveAccounts();
+        DataWriter.saveAdmins();
     }
 }
