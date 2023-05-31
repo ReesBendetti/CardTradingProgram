@@ -16,7 +16,11 @@ public class CardSystemFacade {
         return cardSystem;
     }
 
-    public boolean login(String userName, String password) {
+    public boolean loginUser(String userName, String password) {
+        return true;
+    }
+
+    public boolean loginAdmin(String userName, String password){
         return true;
     }
 
