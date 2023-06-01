@@ -32,6 +32,14 @@ public class User extends Account {
         return receivedTrades;
     }
 
+    public void addProposedTrade(TradeProposal proposal){
+        proposedTrades.add(proposal);
+    }
+
+    public void addReceivedTrades(TradeProposal proposal){
+        receivedTrades.add(proposal);
+    }
+
     public ArrayList<Card> getCards() {
         return cardCollection;
     }
