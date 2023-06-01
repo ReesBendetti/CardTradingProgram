@@ -1,1 +1,43 @@
-[{"player-position":"outfielder","sports-league":"Baseball","is-rookie":true,"card-number":1,"total-cards-inventory":1,"plyer-trivia":"How many championships does ruth have?","team-name":"Yankees","rarity type":"exclusive","id":"9af47a4e-cae5-436e-ae1c-f995c9c2fbf1","player-last-name":"Ruth","player-first-name":"George","number-total-cards":1},{"player-position":"Shooting Guard","sports-league":"Basketball","is-rookie":true,"card-number":2,"total-cards-inventory":1,"plyer-trivia":null,"team-name":"Bulls","rarity type":null,"id":"833bd717-3e76-4a24-8229-818bb2ee5171","player-last-name":"Jordan","player-first-name":"Michael","number-total-cards":1},{"player-position":"Runningback","sports-league":"Football","is-rookie":true,"card-number":3,"total-cards-inventory":2,"plyer-trivia":null,"team-name":"Lions","rarity type":null,"id":"cc5bf60e-96f7-4133-a4dd-bca18cc25366","player-last-name":"Sanders","player-first-name":"Barry","number-total-cards":3}]
+[{
+        "player-position": "outfielder",
+        "sports-league": "Baseball",
+        "is-rookie": true,
+        "card-number": 1,
+        "total-cards-inventory": 1,
+        "plyer-trivia": "How many championships does ruth have?",
+        "team-name": "Yankees",
+        "rarity type": "exclusive",
+        "id": "9af47a4e-cae5-436e-ae1c-f995c9c2fbf1",
+        "player-last-name": "Ruth",
+        "player-first-name": "George",
+        "number-total-cards": 1
+    },
+    {
+        "player-position": "Shooting Guard",
+        "sports-league": "Basketball",
+        "is-rookie": true,
+        "card-number": 2,
+        "total-cards-inventory": 1,
+        "plyer-trivia": null,
+        "team-name": "Bulls",
+        "rarity type": null,
+        "id": "833bd717-3e76-4a24-8229-818bb2ee5171",
+        "player-last-name": "Jordan",
+        "player-first-name": "Michael",
+        "number-total-cards": 1
+    },
+    {
+        "player-position": "Runningback",
+        "sports-league": "Football",
+        "is-rookie": true,
+        "card-number": 3,
+        "total-cards-inventory": 2,
+        "plyer-trivia": null,
+        "team-name": "Lions",
+        "rarity type": null,
+        "id": "cc5bf60e-96f7-4133-a4dd-bca18cc25366",
+        "player-last-name": "Sanders",
+        "player-first-name": "Barry",
+        "number-total-cards": 3
+    }
+]

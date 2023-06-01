@@ -129,18 +129,18 @@ public class DataWriter extends DataConstants {
 	}
    public static JSONObject getProposalJSON(TradeProposal proposal) {
 		JSONObject proposalDetails = new JSONObject();
-      proposalDetails.put(PROPOSAL_SENDER, proposal.getSender());
-		proposalDetails.put(PROPOSAL_RECEIVER, proposal.getReceiver());
+      proposalDetails.put(PROPOSAL_SENDER, proposal.getSender().getId().toString());
+		proposalDetails.put(PROPOSAL_RECEIVER, proposal.getReceiver().getId().toString());
       ArrayList<Card> senderCards = proposal.getSenderCards();
       JSONArray jsonSendercards = new JSONArray();
       for(int i = 0;i<senderCards.size(); i++) {
-         jsonSendercards.add(senderCards.get(i));
+         jsonSendercards.add(senderCards.get(i).getId().toString());
       }
-      proposalDetails.put(PROPOSAL_SENDER_CARD, jsonSendercards);
+      proposalDetails.put(PROPOSAL_SENDER_CARDS, jsonSendercards);
       ArrayList<Card> receiverCards = proposal.getReceiverCards();
       JSONArray jsonReceivercards = new JSONArray();
       for(int i = 0;i<receiverCards.size(); i++) {
-         jsonReceivercards.add(receiverCards.get(i));
+         jsonReceivercards.add(receiverCards.get(i).getId().toString());
       }
 		proposalDetails.put(PROPOSAL_RECEIVER_CARDS, jsonReceivercards);
       proposalDetails.put(PROPOSAL_STATUS, proposal.getStatus());
