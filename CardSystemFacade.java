@@ -17,6 +17,10 @@ public class CardSystemFacade {
         }
     }
 
+    public ArrayList<User> getUsers() {
+        return AccountList.getUsers();
+     }
+
     public static CardSystemFacade getInstance(){
         if(cardSystem == null){
             cardSystem = new CardSystemFacade();
