@@ -3,7 +3,7 @@ import java.util.UUID;
 
 public class User extends Account {
     private ArrayList<Card> cardCollection;
-    private ArrayList<TradeProposal> proposedTrades;
+    private ArrayList<TradeProposal> proposedTrades ;
     private ArrayList<TradeProposal> receivedTrades;
     private int coins;
     private static final int COIN_COUNT = 25;
@@ -12,6 +12,8 @@ public class User extends Account {
         super(id, username, password, email, false);
         this.coins = coins;
         this.cardCollection = cardCollection;
+        proposedTrades = new ArrayList<TradeProposal>();
+        receivedTrades = new ArrayList<TradeProposal>();
     }
 
     public User(String username, String password, String email) {
