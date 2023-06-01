@@ -10,6 +10,8 @@ public class CardSystemUI {
     private String[] mainMenuOptions = {"View Your Cards", "Purchase New Cards", "Trading", "Quit"};
     private String[] mainMenuAdminOptions = {"View a User's Cards", "Add Cards", "Quit"};
     private String[] sportsLeagues = {"Baseball", "Basketball", "Football"};
+    private String[] trading = {"Propose New Trade", "View Pending Trades"};
+    private String[] purchasing = {"Small Card Pack", "Large Card Pack"};
 	private Scanner scanner;
     private CardSystemFacade cardSystem;
 
@@ -45,9 +47,9 @@ public class CardSystemUI {
             if (menuChoice == 0) {
                 displayCards(cardSystem.getMyCards());
             } else if (menuChoice == 1) {
-                //purchasing new cards
+                purchasing();
             } else if (menuChoice == 2) {
-                //viewing and proposing trades
+                trading();
             }
         }
     }
@@ -67,6 +69,39 @@ public class CardSystemUI {
                 //add a card
                 addCard();
             } 
+        }
+    }
+
+    private void trading() {
+        while(true){
+            int menuChoice = getMenuChoice("Trading Menu", trading);
+
+            if (menuChoice == 0) {
+                //Propose a new trade
+            } else if (menuChoice == 1) {
+                //Viewing offered trades
+            } 
+        }
+    }
+
+    private void purchasing() {
+        int menuChoice = getMenuChoice("Which Type of Cards?", sportsLeagues);
+        int league;
+
+        if (menuChoice == 0) {
+            league = 0; //Baseball
+        } else if (menuChoice == 1) {
+            league = 1; //Basketball
+        } else if (menuChoice == 2) {
+            league = 2; //Football
+        }
+
+        menuChoice = getMenuChoice("Which Sized Card Pack?", purchasing);
+
+        if (menuChoice == 0) {
+            //Small Pack + League
+        } else if (menuChoice == 1) {
+            //Large Pack + League
         }
     }
 

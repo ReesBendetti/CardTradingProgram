@@ -6,7 +6,7 @@ public class CardInventory {
     private ArrayList<Card> cards;
     private static CardInventory Inventory;
 
-    private CardInventory() {
+    CardInventory() {
         cards = DataLoader.getCards();
     }
 
