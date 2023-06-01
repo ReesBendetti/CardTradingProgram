@@ -9,6 +9,7 @@ public class CardSystemUI {
 	private String[] loginMenuOptions = {"Login", "Signup","Quit"};
     private String[] mainMenuOptions = {"View Your Cards", "Purchase New Cards", "Trading", "Quit"};
     private String[] mainMenuAdminOptions = {"View a User's Cards", "Add Cards", "Quit"};
+    private String[] sportsLeagues = {"Baseball", "Basketball", "Football"};
 	private Scanner scanner;
     private CardSystemFacade cardSystem;
 
@@ -52,7 +53,44 @@ public class CardSystemUI {
     }
 
     private void runAdmin(){
+        while(true){
+            int menuChoice = getMenuChoice("Admin Main Menu", mainMenuAdminOptions);
 
+            if (menuChoice == mainMenuAdminOptions.length - 1){
+                System.out.println("Good bye administrator! Have a nice day.");
+                return;
+            }
+
+            if (menuChoice == 0) {
+                //View users cards
+            } else if (menuChoice == 1) {
+                //add a card
+                addCard();
+            } 
+        }
+    }
+
+    private void addCard(){
+        System.out.println("Create Card Information.");
+        String playerFirstName = getString("Player First Name");
+        String playerLastName = getString("Player Last Name");
+        String playerPosition = getString("Player Position");
+        String teamName = getString("Team Name");
+        String sportsLeague = getSportsLeague();
+        int cardNumber = getInt("Card Number");
+        String playerTrivia = getString("Player Trivia");
+        String rarityType = getString("Rarity Type");
+        boolean isRookie = getBoolean(getString("Is a rookie"));
+        int numCardsTotal = getInt("Total Number of Cards");
+    }
+
+    private static boolean getBoolean(String data){
+        return data.equalsIgnoreCase("true");
+    }
+
+    private String getSportsLeague(){
+        int choice = getMenuChoice("Pick a sports League", sportsLeagues);
+        return sportsLeagues[choice];
     }
 
     private void displayCards(ArrayList<Card> cards){
@@ -86,7 +124,7 @@ public class CardSystemUI {
             String password = getString("password");
 
             if (cardSystem.login(userName, password)) {
-                System.out.println("You've successfully logged in as a User.");
+                System.out.println("You've successfully logged in.");
                 timeout();
                 clear();
                 return true;
@@ -192,6 +230,13 @@ public class CardSystemUI {
 			if(!content.contentEquals("")) return content;	
 			System.out.println("Sorry, your data was blank");
 		}
+	}
+
+    private int getInt(String prompt) {
+        System.out.print(prompt + ": ");
+        int num = scanner.nextInt();
+        scanner.nextLine();
+        return num;
 	}
 
     public void clear() {

@@ -5,7 +5,6 @@ import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 public class DataLoader extends DataConstants {
     public static ArrayList<Card> getCards() {
         ArrayList<Card> cards = new ArrayList<Card>();
@@ -29,9 +28,6 @@ public class DataLoader extends DataConstants {
                 Boolean isRookie = (boolean)cardJSON.get(CARD_IS_ROOKIE);
                 int numCardsTotal = ((Long)cardJSON.get(CARD_NUMBER_TOTAL_CARDS)).intValue();
                 int numCardsInInventory = ((Long)cardJSON.get(CARD_TOTAL_CARD_INVENTORY)).intValue();
-
-
-				System.out.println("Test: " + cardID + " " + playerFirstName);
 				
                 if (sportsLeague.equalsIgnoreCase("baseball")) {
 				    cards.add(new BaseballCard(cardID, playerFirstName, playerLastName, playerPosition, sportsLeague, playerTeamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInInventory));
@@ -49,10 +45,6 @@ public class DataLoader extends DataConstants {
 		} finally {
             return cards;
         }
-    }
-
-    private static boolean getBoolean(String data){
-        return data.equalsIgnoreCase("true");
     }
 
     public static ArrayList<Account> getAccounts(){

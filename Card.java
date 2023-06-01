@@ -32,7 +32,7 @@ public class Card {
     }
 
     //deleted player stats -Rees
-    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, int numCardsTotal, int numCardsInventory) {
+    public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, int numCardsTotal) {
         this.playerFirstName = playerFirstName;
         this.playerFirstName = playerLastName;
         this.playerPosition = playerPosition;
@@ -43,7 +43,7 @@ public class Card {
         this.rarityType = rarityType;
         this.isRookie = isRookie;
         this.numCardsTotal = numCardsTotal;
-        this.numCardsInInventory = numCardsInventory;
+        this.numCardsInInventory = numCardsTotal;
         id = UUID.randomUUID();
     }
 

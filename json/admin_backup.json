@@ -1,4 +1,5 @@
-[{
+[
+    {
         "idAdmin": "f57e56fe-d23c-4e9a-ab38-7dd682f777bc",
         "usernameAdmin": "ReesBendetti",
         "passwordAdmin": "amazingpassword12345",
@@ -9,5 +10,11 @@
         "usernameAdmin": "Mark9002314",
         "passwordAdmin": "incrediblepassword54321",
         "emailAdmin": "12345@realdomain.edu"
+    },
+    {
+        "idAdmin": "72884ba1-8355-4287-87a3-fc5af10dd668",
+        "usernameAdmin": "admin",
+        "passwordAdmin": "12345",
+        "emailAdmin": "admin@realdomain.edu"
     }
 ]
