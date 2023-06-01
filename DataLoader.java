@@ -123,43 +123,6 @@ public class DataLoader extends DataConstants {
             return admins;
         }
     }
-    /*public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<User>();
-        try {
-            FileReader reader = new FileReader(USERS_FILE_NAME);
-			JSONParser parser = new JSONParser();
-			JSONArray usersJSON = (JSONArray)new JSONParser().parse(reader);
-
-            for (int i = 0; i < usersJSON.size(); i++) {
-                JSONObject userJSON = (JSONObject)usersJSON.get(i);
-                UUID id = UUID.fromString((String)userJSON.get(USER_ID));
-                String username = (String)userJSON.get(USER_USERNAME);
-                String password = (String)userJSON.get(USER_PASSWORD);
-                String email = (String)userJSON.get(USER_EMAIL);
-                int coins = ((Long)userJSON.get(USER_COINS)).intValue();
-                JSONArray cardsJSON = (JSONArray)userJSON.get(USER_CARDS);
-
-                ArrayList<Card> cards = new ArrayList<Card>();
-                for (int j = 0; j < cardsJSON.size(); j++) {
-                    UUID cardID = UUID.fromString((String)cardsJSON.get(j));
-                    Card card = CardInventory.getInstance().getCardById(cardID);
-                    cards.add(card);
-                }
-                User user = new User(id, username, password, email, coins, cards);
-
-                for(Card card : cards){
-                    card.addUser(user);
-                }
-                users.add(user);
-            }
-            return users;
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        } finally {
-            return users;
-        }
-    } */
 
     public static ArrayList<TradeProposal> getProposedTrade() {
         ArrayList <TradeProposal> proposals = new ArrayList<TradeProposal>();
