@@ -18,7 +18,7 @@ public class CardSystemFacade {
     }
 
     public ArrayList<User> getUsers() {
-        return AccountList.getUsers();
+        return AccountList.getInstance().getUsers();
      }
 
     public static CardSystemFacade getInstance(){
@@ -83,8 +83,7 @@ public class CardSystemFacade {
     }
 
     public boolean addCard(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, boolean isRookie) {
-       CardInventory cardInventory = new CardInventory();
-       return cardInventory.addCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, cardNumber, cardNumber);
+       return CardInventory.getInstance().addCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, cardNumber, cardNumber);
     }
 
     public void removeCard(Card card) {
@@ -106,5 +105,6 @@ public class CardSystemFacade {
     public void logout(){
         AccountList.getInstance().save();
         CardInventory.getInstance().save();
+        DataWriter.saveProposals();
     }
 }

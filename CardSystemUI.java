@@ -117,7 +117,7 @@ public class CardSystemUI {
         String rarityType = getString("Rarity Type");
         boolean isRookie = getBoolean(getString("Is a rookie"));
         int numCardsTotal = getInt("Total Number of Cards");
-       // addCard(); 
+        cardSystem.addCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, null, cardNumber, playerTrivia, rarityType, isRookie);
     }
 
     private static boolean getBoolean(String data){
