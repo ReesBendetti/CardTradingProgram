@@ -39,6 +39,7 @@ public class AccountList {
     private AccountList() {
         users = DataLoader.getUsers();
         admins = DataLoader.getAdmin();
+        DataLoader.loadProposedTrades();
     }
 
     public static AccountList getInstance() {

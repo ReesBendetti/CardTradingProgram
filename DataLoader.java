@@ -116,8 +116,7 @@ public class DataLoader extends DataConstants {
         }
     }
 
-    public static ArrayList<TradeProposal> getProposedTrade() {
-        ArrayList <TradeProposal> proposals = new ArrayList<TradeProposal>();
+    public static void loadProposedTrades() {
         try {
             FileReader reader = new FileReader(PROPOSALS_FILE_NAME);
 			JSONParser parser = new JSONParser();
@@ -130,14 +129,14 @@ public class DataLoader extends DataConstants {
                 ArrayList<Card> receiverCards = getCards((JSONArray)proposalJSON.get(PROPOSAL_RECEIVER_CARDS));
                 int status = ((Long)proposalJSON.get(PROPOSAL_STATUS)).intValue();
 
-                proposals.add(new TradeProposal(sender, receiver, senderCards, receiverCards, status));
+                TradeProposal proposal = new TradeProposal(sender, receiver, senderCards, receiverCards, status);
+                sender.addProposedTrade(proposal);
+                receiver.addReceivedTrades(proposal);
             }
-            return proposals;
         }
         catch(Exception e) {
             e.printStackTrace();
         } finally {
-            return proposals;
         }
     }
 
@@ -159,10 +158,5 @@ public class DataLoader extends DataConstants {
     }
 
     public static void main(String[] args) {
-        ArrayList<TradeProposal> proposals = DataLoader.getProposedTrade();
-
-        for (TradeProposal proposal: proposals) {
-            System.out.println(proposal);
-        }
     }
 }
