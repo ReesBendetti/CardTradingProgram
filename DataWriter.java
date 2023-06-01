@@ -110,11 +110,48 @@ public class DataWriter extends DataConstants {
 		adminDetails.put(ADMIN_EMAIL, admin.getEmail());
       return adminDetails;
    }
+   public static void saveProposals() {
+		ArrayList<TradeProposal> proposals = DataLoader.getProposedTrade();
+		JSONArray jsonProposals = new JSONArray();
+		
+		for(int i=0; i< proposals.size(); i++) {
+			jsonProposals.add(getProposalJSON(proposals.get(i)));
+		}
+		
+        try (FileWriter file = new FileWriter(PROPOSALS_FILE_NAME)) {
+ 
+            file.write(jsonProposals.toJSONString());
+            file.flush();
+ 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+   public static JSONObject getProposalJSON(TradeProposal proposal) {
+		JSONObject proposalDetails = new JSONObject();
+      proposalDetails.put(PROPOSAL_SENDER, proposal.getSender());
+		proposalDetails.put(PROPOSAL_RECEIVER, proposal.getReceiver());
+      ArrayList<Card> senderCards = proposal.getSenderCards();
+      JSONArray jsonSendercards = new JSONArray();
+      for(int i = 0;i<senderCards.size(); i++) {
+         jsonSendercards.add(senderCards.get(i));
+      }
+      proposalDetails.put(PROPOSAL_SENDER_CARD, jsonSendercards);
+      ArrayList<Card> receiverCards = proposal.getReceiverCards();
+      JSONArray jsonReceivercards = new JSONArray();
+      for(int i = 0;i<receiverCards.size(); i++) {
+         jsonReceivercards.add(receiverCards.get(i));
+      }
+		proposalDetails.put(PROPOSAL_RECEIVER_CARDS, jsonReceivercards);
+      proposalDetails.put(PROPOSAL_STATUS, proposal.getStatus());
+      return proposalDetails;
+   }
 
 	public static void main(String[] args){
-		//saveCards();
+      saveCards();
       saveAccounts();
-      //saveAdmins();
+      saveAdmins();
+      saveProposals();
       //CardInventory inventory = CardInventory.getInstance();
 	}
 }

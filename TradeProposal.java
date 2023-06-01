@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.sound.sampled.ReverbType;
+
 public class TradeProposal {
     private User sender;
     private User receiver;
@@ -12,6 +14,21 @@ public class TradeProposal {
         this.receiver = receiver;
         this.senderCards = senderCards;
         this.receiverCards = receiverCards;
+    }
+    public User getSender() {
+        return sender;
+    }
+    public User getReceiver() {
+        return receiver;
+    }
+    public int getStatus() {
+        return status;
+    }
+    public ArrayList<Card> getSenderCards() {
+        return senderCards;
+    }
+    public ArrayList<Card> getReceiverCards() {
+        return receiverCards;
     }
 
     public void acceptOffer(){
