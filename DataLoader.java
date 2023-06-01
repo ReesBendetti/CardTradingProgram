@@ -124,10 +124,10 @@ public class DataLoader extends DataConstants {
 			JSONArray proposalsJSON = (JSONArray)new JSONParser().parse(reader);
             for (int i = 0; i < proposalsJSON.size(); i++) {
                 JSONObject proposalJSON = (JSONObject)proposalsJSON.get(i);
-                String sender = (String)proposalJSON.get(PROPOSAL_SENDER);
-                String receiver = (String)proposalJSON.get(PROPOSAL_RECEIVER);
-                String senderCards = (String)proposalJSON.get(PROPOSAL_SENDER_CARD);
-                String receiverCards = (String)proposalJSON.get(PROPOSAL_RECEIVER_CARDS);
+                User sender = getUserByUUID((String)proposalJSON.get(PROPOSAL_SENDER));
+                User receiver = getUserByUUID((String)proposalJSON.get(PROPOSAL_RECEIVER));
+                ArrayList<Card> senderCards = getCards((JSONArray)proposalJSON.get(PROPOSAL_SENDER_CARDS));
+                ArrayList<Card> receiverCards = getCards((JSONArray)proposalJSON.get(PROPOSAL_RECEIVER_CARDS));
                 int status = ((Long)proposalJSON.get(PROPOSAL_STATUS)).intValue();
 
                 proposals.add(new TradeProposal(sender, receiver, senderCards, receiverCards, status));
@@ -141,11 +141,28 @@ public class DataLoader extends DataConstants {
         }
     }
 
-    public static void main(String[] args) {
-        ArrayList<Admin> admins = DataLoader.getAdmin();
+    private static ArrayList<Card> getCards(JSONArray jsonCards){
+        ArrayList<Card> cards = new ArrayList<Card>();
 
-        for (Admin admin: admins) {
-            System.out.println(admin);
+        for (int i = 0; i < jsonCards.size(); i++) {
+            UUID cardId = UUID.fromString((String)jsonCards.get(i));
+            Card card = CardInventory.getInstance().getCardById(cardId);
+            cards.add(card);
+        }
+
+        return cards;
+    }
+
+    private static User getUserByUUID(String id){
+        UUID uuid = UUID.fromString(id);
+        return AccountList.getInstance().getUserById(uuid);
+    }
+
+    public static void main(String[] args) {
+        ArrayList<TradeProposal> proposals = DataLoader.getProposedTrade();
+
+        for (TradeProposal proposal: proposals) {
+            System.out.println(proposal);
         }
     }
 }

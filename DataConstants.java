@@ -35,7 +35,7 @@ public class DataConstants {
     //Proposal constants
     public static final String PROPOSAL_SENDER = "sender";
     public static final String PROPOSAL_RECEIVER = "reciever";
-    public static final String PROPOSAL_SENDER_CARD = "sender-cards";
-    public static final String PROPOSAL_RECEIVER_CARDS = "receiver-cards";
+    public static final String PROPOSAL_SENDER_CARDS = "sender-cards";
+    public static final String PROPOSAL_RECEIVER_CARDS = "reciever-cards";
     public static final String PROPOSAL_STATUS = "status";
 }

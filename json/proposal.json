@@ -1,7 +1,1 @@
-[{
-    "sender": "454c210b-a771-4b17-9d28-5a68a3f91c6c",
-    "reciever": "591219f3-5549-4a0b-877d-d5aa0dd47efd",
-    "sender-cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf1"],
-    "reciever-cards": ["9af47a4e-cae5-436e-ae1c-f995c9c2fbf0"],
-    "status": 0
-}]
+[{"sender-cards":["9af47a4e-cae5-436e-ae1c-f995c9c2fbf1"],"sender":"454c210b-a771-4b17-9d28-5a68a3f91c6c","reciever":"c9b00037-1066-4063-ad70-9a1d67d13906","reciever-cards":["cc5bf60e-96f7-4133-a4dd-bca18cc25366"],"status":0}]
