@@ -64,7 +64,14 @@ public class CardSystemUI {
             }
 
             if (menuChoice == 0) {
-                //View users cards
+                ArrayList<User> users = CardSystemFacade.getInstance().getUsers();
+
+                for (int i = 0; i < users.size(); i++) {
+                    System.out.println((i + 1) + " " + users.get(i).getUserName());
+                }
+
+                timeout();
+
             } else if (menuChoice == 1) {
                 //add a card
                 addCard();
