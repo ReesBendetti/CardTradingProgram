@@ -126,7 +126,27 @@ public class DataLoader extends DataConstants {
 
     public static ArrayList<TradeProposal> getProposedTrade() {
         ArrayList <TradeProposal> proposals = new ArrayList<TradeProposal>();
-        return proposals;
+        try {
+            FileReader reader = new FileReader(PROPOSALS_FILE_NAME);
+			JSONParser parser = new JSONParser();
+			JSONArray proposalsJSON = (JSONArray)new JSONParser().parse(reader);
+            for (int i = 0; i < proposalsJSON.size(); i++) {
+                JSONObject proposalJSON = (JSONObject)proposalsJSON.get(i);
+                String sender = (String)proposalJSON.get(PROPOSAL_SENDER);
+                String receiver = (String)proposalJSON.get(PROPOSAL_RECEIVER);
+                String senderCards = (String)proposalJSON.get(PROPOSAL_SENDER_CARD);
+                String receiverCards = (String)proposalJSON.get(PROPOSAL_RECEIVER_CARDS);
+                int status = ((Long)proposalJSON.get(PROPOSAL_STATUS)).intValue();
+
+                proposals.add(new TradeProposal(sender, receiver, senderCards, receiverCards, status));
+            }
+            return proposals;
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            return proposals;
+        }
     }
 
     public static void main(String[] args) {
