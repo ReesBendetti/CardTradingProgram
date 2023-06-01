@@ -7,7 +7,8 @@ public class CardSystemUI {
     private static final String USER_NAME = "username";
     private static final String PASSWORD = "password";
 	private String[] loginMenuOptions = {"Login", "Signup","Quit"};
-    private String[] mainMenuOptions = {"View Your Cards", "Quit"};
+    private String[] mainMenuOptions = {"View Your Cards", "Purchase New Cards", "Trading", "Quit"};
+    private String[] mainMenuAdminOptions = {"View a User's Cards", "Add Cards", "Quit"};
 	private Scanner scanner;
     private CardSystemFacade cardSystem;
 
@@ -23,17 +24,34 @@ public class CardSystemUI {
         if(!loginOrSignUp()) return;
         
         while(true){
-            int menuChoice = getMenuChoice("Main Menu", mainMenuOptions);
+            int menuChoice = getMenuChoice("User Main Menu", mainMenuOptions);
+            int menuAdminChoice = getMenuChoice("Admin Main Menu", mainMenuAdminOptions);
 
-            if(menuChoice == mainMenuOptions.length - 1){
-                System.out.println("Good bye and have a nice day.");
+            if (menuChoice == mainMenuOptions.length - 1){
+                System.out.println("Good bye user! Have a nice day.");
                 cardSystem.logout();
                 return;
             }
 
-            if(menuChoice == 0){
+            if (menuChoice == 0) {
                 displayCards(cardSystem.getMyCards());
+            } else if (menuChoice == 1) {
+                //purchasing new cards
+            } else if (menuChoice == 2) {
+                //viewing and proposing trades
             }
+
+            if (menuAdminChoice == mainMenuAdminOptions.length - 1) {
+                System.out.println("Good bye administrator! Have a nice day.");
+                cardSystem.logout();
+                return;
+            }
+
+            if (menuChoice == 0) {
+                //Temporarily log into another user's account just to view their cards?
+            } else if (menuChoice == 1) {
+                addingCards(cardSystem.addCard());
+            } 
         }
     }
 
