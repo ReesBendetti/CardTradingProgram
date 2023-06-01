@@ -13,11 +13,13 @@ public class User extends Account {
         this.coins = coins;
         this.cardCollection = cardCollection;
     }
+
     public User(String username, String password, String email) {
         super(username, password, email);
         coins = COIN_COUNT;
 
     }
+    
     public String toString() {
         return "I am a user";
     }

@@ -88,8 +88,27 @@ public class CardSystemUI {
         }
     }
 
-    private boolean signup(){
-        return true;
+    private boolean signup() {
+        while(true){
+            System.out.println("Create Login credentials.");
+            String userName = getString("username");
+            String password = getString("password");
+            String email = getString("email");
+
+            if (cardSystem.signUp(userName, password, email)) {
+                System.out.println("You've made your account and are now successfully logged in as a User.");
+                timeout();
+                clear();
+                return true;
+            }
+
+            System.out.println("Sorry, invalid login");
+
+            if(!tryAgain()){
+                return false;
+            }
+               
+        }
     }
 
     private boolean tryAgain(){
@@ -171,7 +190,7 @@ public class CardSystemUI {
         try {
             TimeUnit.MILLISECONDS.sleep(2000);
         } catch (Exception e) {
-            System.out.println("Timmer error");
+            System.out.println("Timer error");
         }
     }
 
