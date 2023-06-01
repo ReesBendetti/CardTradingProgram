@@ -124,31 +124,11 @@ public class DataLoader extends DataConstants {
 			JSONArray proposalsJSON = (JSONArray)new JSONParser().parse(reader);
             for (int i = 0; i < proposalsJSON.size(); i++) {
                 JSONObject proposalJSON = (JSONObject)proposalsJSON.get(i);
-<<<<<<< HEAD
-                String sender = (String)proposalJSON.get(PROPOSAL_SENDER);
-                String receiver = (String)proposalJSON.get(PROPOSAL_RECEIVER);
-                JSONArray senderCardsJSON = (JSONArray)proposalJSON.get(PROPOSAL_SENDER_CARD);
-                JSONArray receiverCardsJSON = (JSONArray)proposalJSON.get(PROPOSAL_RECEIVER_CARDS);
-=======
                 User sender = getUserByUUID((String)proposalJSON.get(PROPOSAL_SENDER));
                 User receiver = getUserByUUID((String)proposalJSON.get(PROPOSAL_RECEIVER));
                 ArrayList<Card> senderCards = getCards((JSONArray)proposalJSON.get(PROPOSAL_SENDER_CARDS));
                 ArrayList<Card> receiverCards = getCards((JSONArray)proposalJSON.get(PROPOSAL_RECEIVER_CARDS));
->>>>>>> c20a2f78e3806439c2737088c4b72d6215b4f5f6
                 int status = ((Long)proposalJSON.get(PROPOSAL_STATUS)).intValue();
-                
-                ArrayList<Card> senderCards = new ArrayList<Card>();
-                for (int j = 0; j < senderCardsJSON.size(); j++) {
-                    UUID cardID = UUID.fromString((String)senderCardsJSON.get(j));
-                    Card senderCard = CardInventory.getInstance().getCardById(cardID);
-                    senderCards.add(senderCard);
-                }
-                ArrayList<Card> receiverCards = new ArrayList<Card>();
-                for (int j = 0; j < receiverCardsJSON.size(); j++) {
-                    UUID cardID = UUID.fromString((String)receiverCardsJSON.get(j));
-                    Card receiverCard = CardInventory.getInstance().getCardById(cardID);
-                    receiverCards.add(receiverCard);
-                }
                 
                
                 proposals.add(new TradeProposal(sender, receiver, senderCards, receiverCards, status));
