@@ -10,7 +10,7 @@ public class CardSystemFacade {
     }
 
     public ArrayList<User> getUsers() {
-        return AccountList.getUsers();
+        return AccountList.getInstance().getUsers();
      }
 
     public static CardSystemFacade getInstance(){
