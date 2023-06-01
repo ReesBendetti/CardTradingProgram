@@ -158,5 +158,7 @@ public class DataLoader extends DataConstants {
     }
 
     public static void main(String[] args) {
+        CardSystemFacade system = CardSystemFacade.getInstance();
+        
     }
 }

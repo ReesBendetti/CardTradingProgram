@@ -6,7 +6,15 @@ public class CardSystemFacade {
     private Account account;
 
     private CardSystemFacade(){
+        CardInventory.getInstance();
+        AccountList.getInstance();
+        DataLoader.loadProposedTrades();
 
+        ArrayList<User> users = AccountList.getInstance().getUsers();
+
+        for(User user : users){
+            System.out.println(user);
+        }
     }
 
     public static CardSystemFacade getInstance(){
