@@ -26,13 +26,26 @@ public class AccountList {
         return null;
     }
 
+    public Account login(String username, String password){
+        Account account = loginUser(username, password);
+
+        if(account != null){
+            return account;
+        }
+        return loginAdmin(username, password);
+    }
+
+
     private AccountList() {
         users = DataLoader.getUsers();
         admins = DataLoader.getAdmin();
     }
 
     public static AccountList getInstance() {
-        AccountList accountList = new AccountList();
+        if(accountList == null){
+            accountList = new AccountList();
+        }
+        
         return accountList;
     }
 
@@ -43,6 +56,7 @@ public class AccountList {
             }
         }
         User user = new User(username, password, email);
+        users.add(user);
         return user;
     }
 
@@ -96,6 +110,6 @@ public class AccountList {
 
     public void save(){
         DataWriter.saveAccounts();
-        DataWriter.saveAdmins();
+        //DataWriter.saveAdmins();
     }
 }

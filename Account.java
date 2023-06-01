@@ -5,19 +5,22 @@ public class Account {
     private String username;
     private String password;
     private String email;
+    private boolean isAnAdmin;
 
-    public Account(UUID id, String username, String password, String email) {
+    public Account(UUID id, String username, String password, String email, boolean isAnAdmin) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.isAnAdmin = isAnAdmin;
     }
 
-    public Account(String username, String password, String email) {
+    public Account(String username, String password, String email, boolean isAnAdmin) {
         id = UUID.randomUUID();
         this.username = username;
         this.password = password;
         this.email = email;
+        this.isAnAdmin = isAnAdmin;
     }
 
     public UUID getId(){
@@ -36,5 +39,9 @@ public class Account {
     }
     public String toString() {
         return username;
+    }
+
+    public boolean isAdmin(){
+        return isAnAdmin;
     }
 }

@@ -9,15 +9,15 @@ public class User extends Account {
     private static final int COIN_COUNT = 25;
 
     public User(UUID id, String username, String password, String email, int coins, ArrayList<Card> cardCollection) {
-        super(id, username, password, email);
+        super(id, username, password, email, false);
         this.coins = coins;
         this.cardCollection = cardCollection;
     }
 
     public User(String username, String password, String email) {
-        super(username, password, email);
+        super(username, password, email, false);
         coins = COIN_COUNT;
-
+        cardCollection = new ArrayList<Card>();
     }
     
     public String toString() {

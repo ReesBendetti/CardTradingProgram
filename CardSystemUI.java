@@ -23,13 +23,21 @@ public class CardSystemUI {
 
         if(!loginOrSignUp()) return;
         
+        if(cardSystem.getCurrentAccount().isAdmin()){
+            runAdmin();
+        } else {
+            runUser();
+        }
+
+        cardSystem.logout();
+    }
+
+    private void runUser(){
         while(true){
             int menuChoice = getMenuChoice("User Main Menu", mainMenuOptions);
-            int menuAdminChoice = getMenuChoice("Admin Main Menu", mainMenuAdminOptions);
 
             if (menuChoice == mainMenuOptions.length - 1){
                 System.out.println("Good bye user! Have a nice day.");
-                cardSystem.logout();
                 return;
             }
 
@@ -40,19 +48,11 @@ public class CardSystemUI {
             } else if (menuChoice == 2) {
                 //viewing and proposing trades
             }
-
-            if (menuAdminChoice == mainMenuAdminOptions.length - 1) {
-                System.out.println("Good bye administrator! Have a nice day.");
-                cardSystem.logout();
-                return;
-            }
-
-            if (menuChoice == 0) {
-                //Temporarily log into another user's account just to view their cards?
-            } else if (menuChoice == 1) {
-                addingCards(cardSystem.addCard());
-            } 
         }
+    }
+
+    private void runAdmin(){
+
     }
 
     private void displayCards(ArrayList<Card> cards){
@@ -85,13 +85,8 @@ public class CardSystemUI {
             String userName = getString("username");
             String password = getString("password");
 
-            if (cardSystem.loginUser(userName, password)) {
+            if (cardSystem.login(userName, password)) {
                 System.out.println("You've successfully logged in as a User.");
-                timeout();
-                clear();
-                return true;
-            } else if (cardSystem.loginAdmin(userName, password)) {
-                System.out.println("You've successfully logged in as an Admin.");
                 timeout();
                 clear();
                 return true;

@@ -3,8 +3,7 @@ import java.util.List;
 
 public class CardSystemFacade {
     private static CardSystemFacade cardSystem;
-    private User user;
-    private Admin admin;
+    private Account account;
 
     private CardSystemFacade(){
 
@@ -17,28 +16,23 @@ public class CardSystemFacade {
         return cardSystem;
     }
 
-    public boolean loginUser(String userName, String password) {
-        user = AccountList.getInstance().loginUser(userName, password);
-
-        if(user == null){
-            return false;
-        }
-        return true;
+    public Account getCurrentAccount(){
+        return account;
     }
 
-    public boolean loginAdmin(String userName, String password){
-        admin = AccountList.getInstance().loginAdmin(userName, password);
+    public boolean login(String userName, String password) {
+        account = AccountList.getInstance().login(userName, password);
 
-        if(admin == null){
+        if(account == null){
             return false;
         }
         return true;
     }
 
     public boolean signUp(String userName, String password, String email) {
-        user =  AccountList.getInstance().addUser(userName, password, email);
+        account =  AccountList.getInstance().addUser(userName, password, email);
 
-        if(user == null){
+        if(account == null){
             return false;
         }
         return true;
@@ -93,7 +87,7 @@ public class CardSystemFacade {
     }
 
     public ArrayList<Card> getMyCards(){
-        return user.getCards();
+        return ((User)account).getCards();
     }
 
     public void logout(){
