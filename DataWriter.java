@@ -148,9 +148,9 @@ public class DataWriter extends DataConstants {
    }
 
 	public static void main(String[] args){
-      saveCards();
-      saveAccounts();
-      saveAdmins();
+      //saveCards();
+      //saveAccounts();
+      //saveAdmins();
       saveProposals();
       //CardInventory inventory = CardInventory.getInstance();
 	}

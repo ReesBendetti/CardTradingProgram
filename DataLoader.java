@@ -126,10 +126,24 @@ public class DataLoader extends DataConstants {
                 JSONObject proposalJSON = (JSONObject)proposalsJSON.get(i);
                 String sender = (String)proposalJSON.get(PROPOSAL_SENDER);
                 String receiver = (String)proposalJSON.get(PROPOSAL_RECEIVER);
-                String senderCards = (String)proposalJSON.get(PROPOSAL_SENDER_CARD);
-                String receiverCards = (String)proposalJSON.get(PROPOSAL_RECEIVER_CARDS);
+                JSONArray senderCardsJSON = (JSONArray)proposalJSON.get(PROPOSAL_SENDER_CARD);
+                JSONArray receiverCardsJSON = (JSONArray)proposalJSON.get(PROPOSAL_RECEIVER_CARDS);
                 int status = ((Long)proposalJSON.get(PROPOSAL_STATUS)).intValue();
-
+                
+                ArrayList<Card> senderCards = new ArrayList<Card>();
+                for (int j = 0; j < senderCardsJSON.size(); j++) {
+                    UUID cardID = UUID.fromString((String)senderCardsJSON.get(j));
+                    Card senderCard = CardInventory.getInstance().getCardById(cardID);
+                    senderCards.add(senderCard);
+                }
+                ArrayList<Card> receiverCards = new ArrayList<Card>();
+                for (int j = 0; j < receiverCardsJSON.size(); j++) {
+                    UUID cardID = UUID.fromString((String)receiverCardsJSON.get(j));
+                    Card receiverCard = CardInventory.getInstance().getCardById(cardID);
+                    receiverCards.add(receiverCard);
+                }
+                
+               
                 proposals.add(new TradeProposal(sender, receiver, senderCards, receiverCards, status));
             }
             return proposals;
