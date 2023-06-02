@@ -9,12 +9,6 @@ public class CardSystemFacade {
         CardInventory.getInstance();
         AccountList.getInstance();
         DataLoader.loadProposedTrades();
-
-        ArrayList<User> users = AccountList.getInstance().getUsers();
-
-        for(User user : users){
-            System.out.println(user);
-        }
     }
 
     public ArrayList<User> getUsers() {
