@@ -4,27 +4,29 @@ import java.util.UUID;
 
 public class CardInventory {
     private ArrayList<Card> cards;
-    private static CardInventory Inventory;
+    private static CardInventory inventory;
 
-    CardInventory() {
+    private CardInventory() {
         cards = DataLoader.getCards();
     }
 
     public static CardInventory getInstance() {
-        CardInventory inventory = new CardInventory();
+        if(inventory == null){
+            inventory = new CardInventory();
+        }
         return inventory;
     }
 
     public boolean addCard(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, boolean isRookie, int numCardsTotal, int numCardsInventory) {
         
-        if(sportsLeague.equals("baseball")){
-            cards.add(new BaseballCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInventory));
+        if(sportsLeague.equalsIgnoreCase("baseball")){
+            cards.add(new BaseballCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal));
             return true;
-        } else if(sportsLeague.equals("football")){
-            cards.add(new FootballCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInventory));
+        } else if(sportsLeague.equalsIgnoreCase("football")){
+            cards.add(new FootballCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal));
             return true;
-        } else if(sportsLeague.equals("basketball")){
-            cards.add(new BasketballCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal, numCardsInventory));
+        } else if(sportsLeague.equalsIgnoreCase("basketball")){
+            cards.add(new BasketballCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, numCardsTotal));
             return true;
         }
         return false;
