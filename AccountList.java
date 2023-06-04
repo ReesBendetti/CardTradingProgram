@@ -59,6 +59,10 @@ public class AccountList {
         users.add(user);
         return user;
     }
+    //==============================
+    public ArrayList<Card> viewUserCards() {
+       
+    }
 
     public boolean addAdmin(UUID id, String username, String password, String email) {
         admins.add(new Admin(id, username, password, email));

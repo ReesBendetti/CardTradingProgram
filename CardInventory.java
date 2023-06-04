@@ -45,6 +45,14 @@ public class CardInventory {
 
         return null;
     }
+    //-----------------------------------------------------------------
+    public Card cardSearch(Card c) {
+        Card card = new Card(null, null, null, null, null, null, 0, null, null, null, 0, 0);
+        for(int i = 0; i<cards.size(); i++)
+            if(cards.get(i).equals(c))
+            card = c;
+            return card;
+    }
 
     public void removeCard(Card card) {
 
