@@ -111,7 +111,7 @@ public class DataWriter extends DataConstants {
       return adminDetails;
    }
    public static void saveProposals() {
-		ArrayList<TradeProposal> proposals = DataLoader.getProposedTrade();
+		ArrayList<TradeProposal> proposals = DataLoader.getProposedTrades();
 		JSONArray jsonProposals = new JSONArray();
 		
 		for(int i=0; i< proposals.size(); i++) {
