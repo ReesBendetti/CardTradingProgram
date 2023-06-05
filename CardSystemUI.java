@@ -12,6 +12,7 @@ public class CardSystemUI {
     private String[] sportsLeagues = {"Baseball", "Basketball", "Football"};
     private String[] trading = {"Propose New Trade", "View Pending Trades"};
     private String[] purchasing = {"Small Card Pack", "Large Card Pack"};
+    private String[] choice =  {"Accept", "Reject"};
 	private Scanner scanner;
     private CardSystemFacade cardSystem;
 
@@ -47,7 +48,7 @@ public class CardSystemUI {
             if (menuChoice == 0) {
                 displayCards(cardSystem.getMyCards());
             } else if (menuChoice == 1) {
-                purchasing();
+                buyCards();
             } else if (menuChoice == 2) {
                 trading();
             }
@@ -80,18 +81,94 @@ public class CardSystemUI {
     }
 
     private void trading() {
-        while(true){
+        while (true) {
             int menuChoice = getMenuChoice("Trading Menu", trading);
 
             if (menuChoice == 0) {
-                //Propose a new trade
+                proposeTrade();
             } else if (menuChoice == 1) {
-                //Viewing offered trades
-            } 
+                viewPendingTrades();
+            }
         }
     }
 
-    private void purchasing() {
+    private void proposeTrade() {
+        System.out.println("Propose a New Trade");
+        System.out.println("--------------------");
+
+        displayCards(cardSystem.getMyCards());
+
+        String myPlayerName = getString("Enter the name of the sports player from your own card collection:");
+        String otherUsername = getString("Enter the username of the user you want to trade with:");
+        String otherPlayerName = getString("Enter the name of the sports player card you want to receive in the trade:");
+
+        TradeProposal tradeProposal = new TradeProposal(cardSystem.getCurrentAccount().getUsername(), otherUsername, myPlayerName, otherPlayerName);
+        cardSystem.addTradeProposal(tradeProposal);
+        System.out.println("Trade proposal sent!");
+        timeout();
+        clear();
+    }
+
+    private void viewPendingTrades() {
+        ArrayList<TradeProposal> pendingTrades = cardSystem.getPendingTrades(cardSystem.getCurrentAccount().getUsername());
+
+        System.out.println("Pending Trades");
+
+        if (pendingTrades.isEmpty()) {
+            System.out.println("You have no pending trades.");
+            return;
+        }
+
+        for (int i = 0; i < pendingTrades.size(); i++) {
+            TradeProposal trade = pendingTrades.get(i);
+            User myPlayerName = trade.getSender();
+            User otherPlayerName = trade.getReceiver();
+
+            System.out.println("Trade " + (i + 1) + ":");
+            System.out.println("My Player: " + myPlayerName);
+            System.out.println("Other User's Player: " + otherPlayerName);
+            System.out.println("Status: " + trade.getStatus());
+        }
+
+        int tradeIndex = getInt("Enter the index of the trade you want to accept or reject (0 to cancel):");
+
+        if (tradeIndex > 0 && tradeIndex <= pendingTrades.size()) {
+            int decision = getMenuChoice("Accept or Reject the Trade?", choice);
+
+            if (decision == 0) {
+                acceptTrade(tradeIndex - 1);
+            } else if (decision == 1) {
+                rejectTrade(tradeIndex - 1);
+            }
+        }
+        clear();
+    }
+
+    private void acceptTrade(int tradeIndex) {
+        TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
+
+        if (cardSystem.acceptTrade(trade)) {
+            System.out.println("Trade accepted!");
+        } else {
+            System.out.println("Failed to accept the trade.");
+        }
+        timeout();
+        clear();
+    }
+
+    private void rejectTrade(int tradeIndex) {
+        TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
+
+        if (cardSystem.rejectTrade(trade)) {
+            System.out.println("Trade rejected!");
+        } else {
+            System.out.println("Failed to reject the trade.");
+        }
+        timeout();
+        clear();
+    }
+
+    private void buyCards() {
         int menuChoice = getMenuChoice("Which Type of Cards?", sportsLeagues);
         int league;
 
@@ -101,15 +178,35 @@ public class CardSystemUI {
             league = 1; //Basketball
         } else if (menuChoice == 2) {
             league = 2; //Football
+        } else {
+            return; // User canceled
         }
 
         menuChoice = getMenuChoice("Which Sized Card Pack?", purchasing);
 
         if (menuChoice == 0) {
-            //Small Pack + League
+            buyCardPack(league, "Small");
         } else if (menuChoice == 1) {
-            //Large Pack + League
+            buyCardPack(league, "Large");
+        } else {
+            return; // User canceled
         }
+    }
+
+    private void buyCardPack(int league, String packSize) {
+        ArrayList<Card> newCards = cardSystem.buyCardPack(league, packSize);
+
+        if (newCards.isEmpty()) {
+            System.out.println("Failed to buy the card pack.");
+        } else {
+            System.out.println("You bought a " + packSize + " Card Pack!");
+
+            System.out.println("New Cards:");
+            displayCards(newCards);
+        }
+
+        timeout();
+        clear();
     }
 
     private void addCard(){

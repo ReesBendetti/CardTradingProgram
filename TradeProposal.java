@@ -7,6 +7,7 @@ public class TradeProposal {
     private User receiver;
     private ArrayList<Card> senderCards;
     private ArrayList<Card> receiverCards;
+    private static TradeProposal proposal;
     private int status = 0;
 
     public TradeProposal(User sender, User receiver, ArrayList<Card> senderCards, ArrayList<Card> receiverCards, int status){
@@ -16,6 +17,14 @@ public class TradeProposal {
         this.receiverCards = receiverCards;
         this.status = status;
     }
+
+    public static TradeProposal getInstance(User sender, User receiver, ArrayList<Card> senderCards, ArrayList<Card> receiverCards, int status) {
+        if (proposal == null) {
+            proposal = new TradeProposal(sender, receiver, senderCards, receiverCards, status);
+        }
+        return proposal;
+    }
+
     public User getSender() {
         return sender;
     }

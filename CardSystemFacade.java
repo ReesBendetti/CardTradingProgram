@@ -49,31 +49,35 @@ public class CardSystemFacade {
     }
 
     public ArrayList<TradeProposal> getProposedTrades() {
-        return null;
+        return TradeProposal.getInstance().getProposedTrades();
     }
 
     public ArrayList<TradeProposal> getReceivedTrades() {
-        return null;
+        return TradeProposal.getInstance().getReceivedTrades();
     }
 
     public int compareCards(Card card1, Card card2) {
-        return 0;
+        return CardComparator.compareCard(card1, card2);
     }
 
-    public int compareCardSet(List<Card> cardSet1, List<Card> cardSet2) {
-        return 0;
+    public int compareCardSet(ArrayList<Card> cardSet1, ArrayList<Card> cardSet2) {
+        return CardComparator.compareCardSet(cardSet1, cardSet2);
     }
 
     public ArrayList<Card> getAllCards() {
-        return null;
+        return CardInventory.getInstance().getCards();
     }
 
     public ArrayList<Card> searchAllUserCards() {
-        return null;
+        if (account instanceof User) {
+            User user = (User) account;
+            return user.getCards();
+        }
+        return new ArrayList<>();
     }
 
     public List<Card> searchPlayer(String firstName, String lastName) {
-        return null;
+        return CardInventory.getInstance().searchPlayer(firstName, lastName);
     }
 
     public boolean addCard(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, boolean isRookie) {
@@ -81,19 +85,30 @@ public class CardSystemFacade {
     }
 
     public void removeCard(Card card) {
-        
+        CardInventory.getInstance().removeCard(card);
     }
 
-    public void purchaseCards(Card card) {
-        
+    public void buyCardPack(Card card) {
+        if (account instanceof User) {
+            User user = (User) account;
+            user.getCards();
+        }
     }
 
     public int getCurrentCoinCount() {
+        if (account instanceof User) {
+            User user = (User) account;
+            return user.getCoins();
+        }
         return 0;
     }
 
     public ArrayList<Card> getMyCards(){
-        return ((User)account).getCards();
+        if (account instanceof User) {
+            User user = (User) account;
+            return user.getCards();
+        }
+        return new ArrayList<>();
     }
 
     public void logout(){
