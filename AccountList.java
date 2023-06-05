@@ -60,8 +60,7 @@ public class AccountList {
         return user;
     }
     //==============================
-    public ArrayList<Card> viewUserCards() {
-        User user = new User(null, null, null);
+    public ArrayList<Card> viewUserCards(User user) {
         return user.getCards();
     }
 
