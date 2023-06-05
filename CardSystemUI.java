@@ -102,7 +102,7 @@ public class CardSystemUI {
         String otherUsername = getString("Enter the username of the user you want to trade with:");
         String otherPlayerName = getString("Enter the name of the sports player card you want to receive in the trade:");
 
-        TradeProposal tradeProposal = new TradeProposal(cardSystem.getCurrentAccount().getUsername(), otherUsername, myPlayerName, otherPlayerName);
+        TradeProposal tradeProposal = new TradeProposal(cardSystem.getCurrentAccount().getUserName(), otherUsername, myPlayerName, otherPlayerName);
         cardSystem.addTradeProposal(tradeProposal);
         System.out.println("Trade proposal sent!");
         timeout();
