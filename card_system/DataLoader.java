@@ -131,8 +131,8 @@ public class DataLoader extends DataConstants {
                 int status = ((Long)proposalJSON.get(PROPOSAL_STATUS)).intValue();
 
                 TradeProposal proposal = new TradeProposal(sender, receiver, senderCards, receiverCards, status);
-                sender.addProposedTrade(proposal);
-                receiver.addReceivedTrades(proposal);
+                //sender.addProposedTrade(proposal);
+                //receiver.addReceivedTrades(proposal);
             }
         }
         catch(Exception e) {
