@@ -45,16 +45,20 @@ public class CardSystemFacade {
         return true;
     }
 
-    public void signOut() {
-
-    }
-
     public ArrayList<TradeProposal> getProposedTrades() {
-        return TradeProposal.getInstance().getProposedTrades();
+        if (!account.isAdmin()) {
+            return ((User)account).getProposedTrades();
+        }
+
+        return null;
     }
 
     public ArrayList<TradeProposal> getReceivedTrades() {
-        return TradeProposal.getInstance().getReceivedTrades();
+        if (!account.isAdmin()) {
+            return ((User)account).getReceivedTrades();
+        }
+
+        return null;
     }
 
     public int compareCards(Card card1, Card card2) {
@@ -67,14 +71,6 @@ public class CardSystemFacade {
 
     public ArrayList<Card> getAllCards() {
         return CardInventory.getInstance().getCards();
-    }
-
-    public ArrayList<Card> searchAllUserCards() {
-        if (account instanceof User) {
-            User user = (User) account;
-            return user.getCards();
-        }
-        return new ArrayList<>();
     }
 
     public List<Card> searchPlayer(String firstName, String lastName) {
@@ -90,14 +86,14 @@ public class CardSystemFacade {
     }
 
     public void buyCardPack(Card card) {
-        if (account instanceof User) {
+        if (!account.isAdmin()) {
             User user = (User) account;
             user.getCards();
         }
     }
 
     public int getCurrentCoinCount() {
-        if (account instanceof User) {
+        if (!account.isAdmin()) {
             User user = (User) account;
             return user.getCoins();
         }
@@ -105,7 +101,7 @@ public class CardSystemFacade {
     }
 
     public ArrayList<Card> getMyCards(){
-        if (account instanceof User) {
+        if (!account.isAdmin()) {
             User user = (User) account;
             return user.getCards();
         }

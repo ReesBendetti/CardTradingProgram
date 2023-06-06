@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+import CardSystemFacade;
+
 public class CardSystemUI {
     private static final String WELCOME_MESSAGE = "Welcome to our Card Trading System";
     private static final String USER_NAME = "username";
@@ -95,6 +97,7 @@ public class CardSystemUI {
 
     private void proposeTrade() {
         System.out.println("Propose a New Trade");
+        System.out.println("--------------------");
 
         displayCards(cardSystem.getMyCards());
 
@@ -102,7 +105,7 @@ public class CardSystemUI {
         String otherUsername = getString("Enter the username of the user you want to trade with:");
         String otherPlayerName = getString("Enter the name of the sports player card you want to receive in the trade:");
 
-        TradeProposal tradeProposal = new TradeProposal(cardSystem.getCurrentAccount().getUsername(), otherUsername, myPlayerName, otherPlayerName);//Change this to first and last name for each
+        TradeProposal tradeProposal = new TradeProposal(cardSystem.getCurrentAccount().getUserName(), otherUsername, myPlayerName, otherPlayerName);
         cardSystem.addTradeProposal(tradeProposal);
         System.out.println("Trade proposal sent!");
         timeout();
