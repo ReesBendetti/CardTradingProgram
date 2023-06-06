@@ -2,6 +2,9 @@ package card_system;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.security.auth.login.AccountException;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -112,11 +115,15 @@ public class DataWriter extends DataConstants {
       return adminDetails;
    }
    public static void saveProposals() {
-		ArrayList<TradeProposal> proposals = DataLoader.getProposedTrades();
+		//ArrayList<TradeProposal> proposals = DataLoader.getProposedTrades();
 
       //get all the users
       //Make a list of all the proposals
       //then replace proposals with it.
+      ArrayList<User> users;
+      for(int i=0; i<users.size(); i++) {
+         users.get(i).getProposedTrades();
+      }
 		JSONArray jsonProposals = new JSONArray();
 		
 		for(int i=0; i< proposals.size(); i++) {
