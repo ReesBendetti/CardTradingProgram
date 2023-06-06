@@ -1,3 +1,4 @@
+package card_system;
 import java.util.ArrayList;
 public class CardComparator {
     public static int compareCard(Card card1, Card card2){

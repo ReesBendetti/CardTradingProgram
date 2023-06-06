@@ -1,3 +1,4 @@
+package card_system;
 public class DataConstants {
     public static final String USERS_FILE_NAME = "json/users.json";
     public static final String ADMIN_FILE_NAME = "json/admin.json";
