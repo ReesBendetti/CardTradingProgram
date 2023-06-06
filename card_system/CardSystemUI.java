@@ -117,8 +117,7 @@ public class CardSystemUI {
     }
 
     private void proposeTrade() {
-        System.out.println("Propose a New Trade");
-        System.out.println("--------------------");
+        System.out.println("******** Propose a New Trade ********");
 
         displayCards(cardSystem.getMyCards());
 
