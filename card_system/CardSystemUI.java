@@ -188,7 +188,7 @@ public class CardSystemUI {
     private void acceptTrade(int tradeIndex) {
         TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
 
-        if (cardSystem.acceptTrade(trade)) {
+        if (trade.acceptOffer();) {
             System.out.println("Trade accepted!");
         } else {
             System.out.println("Failed to accept the trade.");
@@ -200,7 +200,7 @@ public class CardSystemUI {
     private void rejectTrade(int tradeIndex) {
         TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
 
-        if (cardSystem.rejectTrade(trade)) {
+        if (trade.declineOffer();) {
             System.out.println("Trade rejected!");
         } else {
             System.out.println("Failed to reject the trade.");
