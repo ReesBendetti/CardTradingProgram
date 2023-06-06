@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import CardSystemFacade;
 
 public class CardSystemUI {
     private static final String WELCOME_MESSAGE = "Welcome to our Card Trading System";
