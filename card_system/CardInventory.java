@@ -60,7 +60,15 @@ public class CardInventory {
     }
     
     public List<Card> searchPlayer(String firstName, String lastName) {
-        return cards;
+        ArrayList<Card> foundCards = new ArrayList<Card>();
+
+        for(Card card: cards){
+            if(card.getFirstName().equalsIgnoreCase(firstName) &&
+            card.getLastName().equalsIgnoreCase(lastName)){
+                foundCards.add(card);
+            }
+        }
+        return foundCards;
     }
 
     public void save(){

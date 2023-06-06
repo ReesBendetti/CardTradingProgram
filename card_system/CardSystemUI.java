@@ -1,5 +1,6 @@
 package card_system;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -9,7 +10,7 @@ public class CardSystemUI {
     private static final String USER_NAME = "username";
     private static final String PASSWORD = "password";
 	private String[] loginMenuOptions = {"Login", "Signup","Quit"};
-    private String[] mainMenuOptions = {"View Your Cards", "Purchase New Cards", "Trading", "Quit"};
+    private String[] mainMenuOptions = {"View Your Cards", "Purchase New Cards", "Trading", "Search Player", "Quit"};
     private String[] mainMenuAdminOptions = {"View a User's Cards", "Add Cards", "Quit"};
     private String[] sportsLeagues = {"Baseball", "Basketball", "Football"};
     private String[] trading = {"Propose New Trade", "View Pending Trades"};
@@ -53,6 +54,8 @@ public class CardSystemUI {
                 buyCards();
             } else if (menuChoice == 2) {
                 trading();
+            } else if (menuChoice == 3) {
+                searching();
             }
         }
     }
@@ -82,10 +85,29 @@ public class CardSystemUI {
         }
     }
 
+    private void searching(){
+        System.out.println("Searching for a player....");
+
+        String playersFirstName = getString("Enter Players First Name");
+        String playersLastName = getString("Enter Players Last Name");
+
+        List<Card> cards = cardSystem.searchPlayer(playersFirstName, playersLastName);
+
+        for(Card card : cards){
+            ArrayList<User> owners = card.getOwners();
+            System.out.println(card );
+            
+            System.out.println("Owned by: ");
+            for(User user : owners){
+                System.out.println("- " + user);
+            }
+        }
+    }
+
     private void trading() {
         while (true) {
             int menuChoice = getMenuChoice("Trading Menu", trading);
-
+            String myPlayerName = getString("Enter the name of the sports player from your own card collection:");
             if (menuChoice == 0) {
                 proposeTrade();
             } else if (menuChoice == 1) {

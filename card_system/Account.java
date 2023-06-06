@@ -3,7 +3,7 @@ import java.util.UUID;
 
 public class Account {
     private UUID id;
-    private String username;
+    protected String username;
     private String password;
     private String email;
     private boolean isAnAdmin;

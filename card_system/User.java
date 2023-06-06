@@ -24,7 +24,7 @@ public class User extends Account {
     }
     
     public String toString() {
-        return "I am a user";
+        return username;
     }
 
     public ArrayList<TradeProposal> getProposedTrades() {
