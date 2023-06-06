@@ -1,4 +1,4 @@
-package card_system;
+package testing;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,10 +77,6 @@ public class CardSystemFacade {
         return CardInventory.getInstance().searchPlayer(firstName, lastName);
     }
 
-    public Card getCard(String firstName, String lastName, String userName){
-        return CardInventory.getInstance().getCard(firstName, lastName, userName);
-    }
-
     public boolean addCard(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, boolean isRookie) {
        return CardInventory.getInstance().addCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, cardNumber, cardNumber);
     }
@@ -112,26 +108,10 @@ public class CardSystemFacade {
         return new ArrayList<>();
     }
 
-    public User getUser(String userName){
-        return AccountList.getInstance().getUser(userName);
-    }
-
     public void logout(){
         AccountList.getInstance().save();
         CardInventory.getInstance().save();
         DataWriter.saveProposals();
     }
-    public boolean proposeTrade(User user2, Card card1, Card card2) {
-        ArrayList<Card> user1Cards = new ArrayList<Card>();
-        user1Cards.add(card1);
-        ArrayList<Card> user2Cards = new ArrayList<Card>();
-        user1Cards.add(card2);
-        return proposeTrade(user2,user1Cards, user2Cards);
-        
-    } 
-    public boolean proposeTrade(User user2, ArrayList<Card> user1Cards, ArrayList<Card> user2Cards) {
-        User user1 = (User)account;
-       TradeProposal tradeProposal = new TradeProposal(user1, user2, user1Cards, user2Cards, -1);
-       return true;
-    }
+   
 }
