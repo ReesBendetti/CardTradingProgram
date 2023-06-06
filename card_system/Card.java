@@ -55,8 +55,8 @@ public class Card {
     public double getValue() {
         return 0.0;
     }
-    public User getOwner() {
-        return null;
+    public ArrayList<User> getOwners() {
+        return users;
     }
     public String getFirstName() {
         return playerFirstName;
