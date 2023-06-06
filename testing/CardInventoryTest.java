@@ -18,4 +18,7 @@ public class CardInventoryTest {
         List<Card> cards = CardInventory.getInstance().searchPlayer("Michael", "Jordan");
         assertEquals(1, cards.size());
     }
+
+    @Test
+    public void 
 }
