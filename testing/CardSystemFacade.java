@@ -113,11 +113,5 @@ public class CardSystemFacade {
         CardInventory.getInstance().save();
         DataWriter.saveProposals();
     }
-    public boolean proposeTrade(User user2, Card card1, Card card2) {
-        TradeProposal tradeProposal = new TradeProposal(user2, user2, getMyCards(), getAllCards(), getCurrentCoinCount());
-        
-    } 
-    public boolean proposeTrade(User user2, Arraylist<Card> user1Cards, ArrayList<Card> user2Cards) {
-
-    }
+   
 }

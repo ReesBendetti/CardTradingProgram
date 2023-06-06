@@ -113,4 +113,17 @@ public class CardSystemFacade {
         CardInventory.getInstance().save();
         DataWriter.saveProposals();
     }
+    public boolean proposeTrade(User user2, Card card1, Card card2) {
+        ArrayList<Card> user1Cards = new ArrayList<Card>();
+        user1Cards.add(card1);
+        ArrayList<Card> user2Cards = new ArrayList<Card>();
+        user1Cards.add(card2);
+        return proposeTrade(user2,user1Cards, user2Cards);
+        
+    } 
+    public boolean proposeTrade(User user2, ArrayList<Card> user1Cards, ArrayList<Card> user2Cards) {
+        User user1 = (User)account;
+       TradeProposal tradeProposal = new TradeProposal(user1, user2, user1Cards, user2Cards, -1);
+       return true;
+    }
 }
