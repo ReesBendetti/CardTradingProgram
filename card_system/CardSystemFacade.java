@@ -77,6 +77,10 @@ public class CardSystemFacade {
         return CardInventory.getInstance().searchPlayer(firstName, lastName);
     }
 
+    public Card getCard(String firstName, String lastName, String userName){
+        return CardInventory.getInstance().getCard(firstName, lastName, userName);
+    }
+
     public boolean addCard(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, ArrayList<String> playerStats, int cardNumber, String playerTrivia, String rarityType, boolean isRookie) {
        return CardInventory.getInstance().addCard(playerFirstName, playerLastName, playerPosition, sportsLeague, teamName, cardNumber, playerTrivia, rarityType, isRookie, cardNumber, cardNumber);
     }
@@ -106,6 +110,10 @@ public class CardSystemFacade {
             return user.getCards();
         }
         return new ArrayList<>();
+    }
+
+    public User getUser(String userName){
+        return AccountList.getInstance().getUser(userName);
     }
 
     public void logout(){

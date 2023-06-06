@@ -71,6 +71,20 @@ public class CardInventory {
         return foundCards;
     }
 
+    public Card getCard(String firstName, String lastName, String userName){
+        for(Card card : cards){
+            if(card.getFirstName().equalsIgnoreCase(firstName) &&
+            card.getLastName().equalsIgnoreCase(lastName)){
+                for(User user : card.getOwners()){
+                    if(user.getUserName().equalsIgnoreCase(userName)){
+                        return card;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     public void save(){
         DataWriter.saveCards();
     }

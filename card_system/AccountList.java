@@ -70,8 +70,13 @@ public class AccountList {
         return true;
     }
 
-    public ArrayList<User> getUser(String username) {
-        return users;
+    public User getUser(String username) {
+        for(User user: users){
+            if(user.getUserName().equalsIgnoreCase(username)){
+                return user;
+            }
+        }
+        return null;
     }
     public ArrayList<User> getUsers() {
         return users;

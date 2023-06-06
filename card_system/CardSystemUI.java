@@ -116,17 +116,27 @@ public class CardSystemUI {
         }
     }
 
+    
+
     private void proposeTrade() {
         System.out.println("******** Propose a New Trade ********");
 
         displayCards(cardSystem.getMyCards());
 
-        String myPlayerName = getString("Enter the name of the sports player from your own card collection:");
+        String myPlayerFirstName = getString("Enter the first name of the sports player from your own card collection:");
+        String myPlayerLastName = getString("Enter the last name of the sports player from your own card collection:");
         String otherUsername = getString("Enter the username of the user you want to trade with:");
-        String otherPlayerName = getString("Enter the name of the sports player card you want to receive in the trade:");
+        String otherPlayerFirstName = getString("Enter the First name of the sports player card you want to receive in the trade:");
+        String otherPlayerLastName = getString("Enter the Last name of the sports player card you want to receive in the trade:");
 
-        TradeProposal tradeProposal = new TradeProposal(cardSystem.getCurrentAccount().getUserName(), otherUsername, myPlayerName, otherPlayerName);
-        cardSystem.addTradeProposal(tradeProposal);
+        Card card1 = cardSystem.getCard(myPlayerFirstName, myPlayerLastName, cardSystem.getCurrentAccount().getUserName());
+        Card card2 = cardSystem.getCard(otherPlayerFirstName, otherPlayerLastName, otherUsername);
+        User otherUser = cardSystem.getUser(otherUsername);
+
+        if(card1 != null && card2 != null && otherUser != null){
+            cardSystem.getProposedTrades(otherUser, card1, card2);
+        }
+
         System.out.println("Trade proposal sent!");
         timeout();
         clear();
