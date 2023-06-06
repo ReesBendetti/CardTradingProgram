@@ -113,6 +113,10 @@ public class DataWriter extends DataConstants {
    }
    public static void saveProposals() {
 		ArrayList<TradeProposal> proposals = DataLoader.getProposedTrades();
+
+      //get all the users
+      //Make a list of all the proposals
+      //then replace proposals with it.
 		JSONArray jsonProposals = new JSONArray();
 		
 		for(int i=0; i< proposals.size(); i++) {

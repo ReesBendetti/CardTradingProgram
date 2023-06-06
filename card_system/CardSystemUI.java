@@ -13,7 +13,7 @@ public class CardSystemUI {
     private String[] mainMenuOptions = {"View Your Cards", "Purchase New Cards", "Trading", "Search Player", "Quit"};
     private String[] mainMenuAdminOptions = {"View a User's Cards", "Add Cards", "Quit"};
     private String[] sportsLeagues = {"Baseball", "Basketball", "Football"};
-    private String[] trading = {"Propose New Trade", "View Pending Trades"};
+    private String[] trading = {"Propose New Trade", "View Pending Trades", "Exit Trading"};
     private String[] purchasing = {"Small Card Pack", "Large Card Pack"};
     private String[] choice =  {"Accept", "Reject"};
 	private Scanner scanner;
@@ -107,11 +107,12 @@ public class CardSystemUI {
     private void trading() {
         while (true) {
             int menuChoice = getMenuChoice("Trading Menu", trading);
-            String myPlayerName = getString("Enter the name of the sports player from your own card collection:");
             if (menuChoice == 0) {
                 proposeTrade();
             } else if (menuChoice == 1) {
                 viewPendingTrades();
+            } else {
+                return;
             }
         }
     }
@@ -120,8 +121,6 @@ public class CardSystemUI {
 
     private void proposeTrade() {
         System.out.println("******** Propose a New Trade ********");
-
-        displayCards(cardSystem.getMyCards());
 
         String myPlayerFirstName = getString("Enter the first name of the sports player from your own card collection:");
         String myPlayerLastName = getString("Enter the last name of the sports player from your own card collection:");
@@ -134,7 +133,7 @@ public class CardSystemUI {
         User otherUser = cardSystem.getUser(otherUsername);
 
         if(card1 != null && card2 != null && otherUser != null){
-            cardSystem.getProposedTrades(otherUser, card1, card2);
+            cardSystem.proposeTrade(otherUser, card1, card2);
         }
 
         System.out.println("Trade proposal sent!");
@@ -143,12 +142,12 @@ public class CardSystemUI {
     }
 
     private void viewPendingTrades() {
-        ArrayList<TradeProposal> pendingTrades = cardSystem.getPendingTrades(cardSystem.getCurrentAccount().getUsername());
+        ArrayList<TradeProposal> pendingTrades = cardSystem.getProposedTrades();
 
-        System.out.println("Pending Trades");
+        System.out.println("Proposed Trades");
 
         if (pendingTrades.isEmpty()) {
-            System.out.println("You have no pending trades.");
+            System.out.println("You have no proposed trades.");
             return;
         }
 
@@ -162,7 +161,7 @@ public class CardSystemUI {
             System.out.println("Other User's Player: " + otherPlayerName);
             System.out.println("Status: " + trade.getStatus());
         }
-
+/* 
         int tradeIndex = getInt("Enter the index of the trade you want to accept or reject (0 to cancel):");
 
         if (tradeIndex > 0 && tradeIndex <= pendingTrades.size()) {
@@ -174,7 +173,7 @@ public class CardSystemUI {
                 rejectTrade(tradeIndex - 1);
             }
         }
-        clear();
+        clear();*/
     }
 
     private void acceptTrade(int tradeIndex) {
