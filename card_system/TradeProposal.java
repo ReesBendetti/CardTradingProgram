@@ -36,6 +36,7 @@ public class TradeProposal {
 
     public void acceptOffer(){
         status = 1; 
+        //ToDO: add and remove cards appropriatelly
     }
 
     public void declineOffer(){
