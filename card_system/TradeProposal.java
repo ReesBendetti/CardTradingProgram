@@ -36,10 +36,31 @@ public class TradeProposal {
 
     public void acceptOffer(){
         status = 1; 
+        /* private User sender;
+    private User receiver;
+    private ArrayList<Card> senderCards;
+    private ArrayList<Card> receiverCards;
+    private int status = 0; */
         //ToDO: add and remove cards appropriatelly
-        ////update cards for sender and receiver. remove and add for each. then update cards.
+        //update cards for sender and receiver. remove and add for each. then update cards.
+        sender.getProposedTrades();
+        receiver.getReceivedTrades();
+        sender.addProposedTrade(null);
+        sender.removeProposedTrade(null);
+        receiver.addReceivedTrades(null);
+        receiver.removeReceivedTrades(null);
     }
+    /*private void acceptTrade(int tradeIndex) {
+        TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
 
+        if (trade.acceptOffer();) {
+            System.out.println("Trade accepted!");
+        } else {
+            System.out.println("Failed to accept the trade.");
+        }
+        timeout();
+        clear();
+    } */
     public void declineOffer(){
         status = -1; 
     }

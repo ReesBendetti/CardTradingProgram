@@ -38,9 +38,15 @@ public class User extends Account {
     public void addProposedTrade(TradeProposal proposal){
         proposedTrades.add(proposal);
     }
+    public void removeProposedTrade(TradeProposal proposal) {
+        proposedTrades.remove(proposal);
+    }
 
     public void addReceivedTrades(TradeProposal proposal){
         receivedTrades.add(proposal);
+    }
+    public void removeReceivedTrades(TradeProposal proposal) {
+        receivedTrades.remove(proposal);
     }
 
     public ArrayList<Card> getCards() {
