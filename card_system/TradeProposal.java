@@ -38,16 +38,17 @@ public class TradeProposal {
         status = 1; 
         //ToDO: add and remove cards appropriately
         //update cards for sender and receiver. remove and add for each. then update cards.
-        TradeProposal proposal = new TradeProposal(sender, receiver, senderCards, receiverCards, status);
-        sender.getProposedTrades();
-        receiver.getReceivedTrades();
-        sender.addProposedTrade(proposal);
-        sender.removeProposedTrade(proposal);
-        receiver.addReceivedTrades(proposal);
-        receiver.removeReceivedTrades(proposal);
-        sender.getCards();
-        receiver.getCards();
+        for(int i =0;i<receiverCards.size();i++) {
+            sender.addCard(receiverCards.get(i));
+            receiver.removeCard(receiverCards.get(i));
+        }
+        for(int i =0;i<senderCards.size();i++) {
+            receiver.addCard(senderCards.get(i));
+            sender.removeCard(senderCards.get(i));
+        }
+
     }
+
     public void declineOffer(){
         status = -1; 
     }

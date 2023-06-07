@@ -45,6 +45,12 @@ public class User extends Account {
     public void addReceivedTrades(TradeProposal proposal){
         receivedTrades.add(proposal);
     }
+    public void addCard(Card card) {
+        cardCollection.add(card);
+    }
+    public void removeCard(Card card) {
+        cardCollection.remove(card);
+    }
     public void removeReceivedTrades(TradeProposal proposal) {
         receivedTrades.remove(proposal);
     }

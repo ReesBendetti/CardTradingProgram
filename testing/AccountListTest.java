@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 public class AccountListTest {
     @Test
     public void testLoginUser() {
-    User account  = AccountList.getInstance().loginUser("cardcollector512", "SunriseMoondrop");
+    User account  = AccountList.getInstance().loginUser("cardcollector512", "SunriseMoondrop")
 	assertNotNull(account);
 	}
     @Test
