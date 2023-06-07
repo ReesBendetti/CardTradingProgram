@@ -116,14 +116,20 @@ public class DataWriter extends DataConstants {
    }
    public static void saveProposals() {
 		//ArrayList<TradeProposal> proposals = DataLoader.getProposedTrades();
-
       //get all the users
       //Make a list of all the proposals
       //then replace proposals with it.
-      ArrayList<User> users;
-      for(int i=0; i<users.size(); i++) {
-         users.get(i).getProposedTrades();
+      ArrayList<User> users = AccountList.getInstance().getUsers();
+      //make array list trade proposals = new arraylist
+      ArrayList<TradeProposal> tradeProposals = new ArrayList<>();
+            for(int i=0; i<users.size(); i++) {
+               for(int j=0; j<tradeProposals.size(); j++) {
+                  users.get(i).getProposedTrades();   
+                  tradeProposals.add(tradeProposals.get(j));
+               }
+         //nested for loop that loops through each proposal add to the arraylist of trade proposal 
       }
+      //
 		JSONArray jsonProposals = new JSONArray();
 		
 		for(int i=0; i< proposals.size(); i++) {
