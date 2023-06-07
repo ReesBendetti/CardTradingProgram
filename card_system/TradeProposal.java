@@ -36,7 +36,8 @@ public class TradeProposal {
 
     public void acceptOffer(){
         status = 1; 
-        //update cards for sender and receiver. remove and add for each. then update cards.
+        //ToDO: add and remove cards appropriatelly
+        ////update cards for sender and receiver. remove and add for each. then update cards.
     }
 
     public void declineOffer(){

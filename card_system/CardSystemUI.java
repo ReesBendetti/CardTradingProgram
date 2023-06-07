@@ -142,25 +142,16 @@ public class CardSystemUI {
     }
 
     private void viewPendingTrades() {
-        ArrayList<TradeProposal> pendingTrades = cardSystem.getProposedTrades();
+        ArrayList<TradeProposal> proposedTrades = cardSystem.getProposedTrades();
 
         System.out.println("Proposed Trades");
+        displayTrades(proposedTrades);
+        
+        ArrayList<TradeProposal> receivedTrades = cardSystem.getReceivedTrades();
 
-        if (pendingTrades.isEmpty()) {
-            System.out.println("You have no proposed trades.");
-            return;
-        }
-
-        for (int i = 0; i < pendingTrades.size(); i++) {
-            TradeProposal trade = pendingTrades.get(i);
-            User myPlayerName = trade.getSender();
-            User otherPlayerName = trade.getReceiver();
-
-            System.out.println("Trade " + (i + 1) + ":");
-            System.out.println("My Player: " + myPlayerName);
-            System.out.println("Other User's Player: " + otherPlayerName);
-            System.out.println("Status: " + trade.getStatus());
-        }
+        System.out.println("Received Trades");
+        displayTrades(receivedTrades);
+        
 /* 
         int tradeIndex = getInt("Enter the index of the trade you want to accept or reject (0 to cancel):");
 
@@ -176,10 +167,28 @@ public class CardSystemUI {
         clear();*/
     }
 
+    private void displayTrades(ArrayList<TradeProposal> proposals){
+        if (proposals.isEmpty()) {
+            System.out.println("No trades .");
+            return;
+        }
+
+        for (int i = 0; i < proposals.size(); i++) {
+            TradeProposal trade = proposals.get(i);
+            User myPlayerName = trade.getSender();
+            User otherPlayerName = trade.getReceiver();
+
+            System.out.println("Trade " + (i + 1) + ":");
+            System.out.println("My Player: " + myPlayerName);
+            System.out.println("Other User's Player: " + otherPlayerName);
+            System.out.println("Status: " + trade.getStatus());
+        }
+    }
+
     private void acceptTrade(int tradeIndex) {
         TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
 
-        if (cardSystem.acceptTrade(trade)) {
+        if (trade.acceptOffer();) {
             System.out.println("Trade accepted!");
         } else {
             System.out.println("Failed to accept the trade.");
@@ -191,7 +200,7 @@ public class CardSystemUI {
     private void rejectTrade(int tradeIndex) {
         TradeProposal trade = cardSystem.getProposedTrades(cardSystem.getCurrentAccount());
 
-        if (cardSystem.rejectTrade(trade)) {
+        if (trade.declineOffer();) {
             System.out.println("Trade rejected!");
         } else {
             System.out.println("Failed to reject the trade.");
