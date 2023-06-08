@@ -200,7 +200,7 @@ public class CardSystemUI {
     
         if (tradeIndex >= 0 && tradeIndex < proposedTrades.size()) {
             TradeProposal trade = proposedTrades.get(tradeIndex);
-            cardSystem.acceptTrade(tradeIndex);
+            trade.acceptOffer();
             System.out.println("Trade accepted!");
         } else {
             System.out.println("Invalid trade index.");
@@ -212,7 +212,7 @@ public class CardSystemUI {
     
         if (tradeIndex >= 0 && tradeIndex < proposedTrades.size()) {
             TradeProposal trade = proposedTrades.get(tradeIndex);
-            cardSystem.rejectTrade(tradeIndex);
+            trade.declineOffer();
             System.out.println("Trade rejected!");
         } else {
             System.out.println("Invalid trade index.");
