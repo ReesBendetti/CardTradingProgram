@@ -122,17 +122,16 @@ public class DataWriter extends DataConstants {
       ArrayList<User> users = AccountList.getInstance().getUsers();
       ArrayList<TradeProposal> tradeProposals = new ArrayList<>();
             for(int i=0; i<users.size(); i++) {
-               for(int j=0; j<tradeProposals.size(); j++) {
-                  users.get(i).getProposedTrades();   
-                  tradeProposals.add(tradeProposals.get(j));
+               for(int j=0; j< users.get(i).getProposedTrades().size(); j++) { 
+                  tradeProposals.add(users.get(i).getProposedTrades().get(j));
                }
          //nested for loop that loops through each proposal add to the arraylist of trade proposal 
       }
       //
 		JSONArray jsonProposals = new JSONArray();
 		
-		for(int i=0; i< proposals.size(); i++) {
-			jsonProposals.add(getProposalJSON(proposals.get(i)));
+		for(int i=0; i< tradeProposals.size(); i++) {
+			jsonProposals.add(getProposalJSON(tradeProposals.get(i)));
 		}
 		
         try (FileWriter file = new FileWriter(PROPOSALS_FILE_NAME)) {
