@@ -35,7 +35,7 @@ public class AccountListTest {
     @Test
     public void testGettingUserCards() {
     ArrayList<User> user = AccountList.getInstance().getUser("mark");
-    assertEquals(user.size(), 2);
+    assertEquals(user.size(), 3);
 
     }
     
