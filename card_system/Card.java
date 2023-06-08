@@ -32,10 +32,9 @@ public class Card {
         this.id = id;
     }
 
-    //deleted player stats -Rees
     public Card(String playerFirstName, String playerLastName, String playerPosition, String sportsLeague, String teamName, int cardNumber, String playerTrivia, String rarityType, Boolean isRookie, int numCardsTotal) {
         this.playerFirstName = playerFirstName;
-        this.playerFirstName = playerLastName;
+        this.playerLastName = playerLastName;
         this.playerPosition = playerPosition;
         this.sportsLeague = sportsLeague;
         this.teamName = teamName;
