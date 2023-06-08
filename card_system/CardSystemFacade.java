@@ -134,4 +134,5 @@ public class CardSystemFacade {
        TradeProposal tradeProposal = new TradeProposal(user1, user2, user1Cards, user2Cards, -1);
        return true;
     }
+
 }
