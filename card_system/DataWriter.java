@@ -120,7 +120,6 @@ public class DataWriter extends DataConstants {
       //Make a list of all the proposals
       //then replace proposals with it.
       ArrayList<User> users = AccountList.getInstance().getUsers();
-      //make array list trade proposals = new arraylist
       ArrayList<TradeProposal> tradeProposals = new ArrayList<>();
             for(int i=0; i<users.size(); i++) {
                for(int j=0; j<tradeProposals.size(); j++) {
