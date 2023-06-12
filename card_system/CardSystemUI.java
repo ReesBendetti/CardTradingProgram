@@ -190,7 +190,15 @@ public class CardSystemUI {
                 System.out.println(receiverCards.get(j));
             }
 
-            System.out.println("Status: " + trade.getStatus());
+            if (trade.getStatus() == -1) {
+                System.out.println("Status: Accepted");
+            } else if (trade.getStatus() == 0) {
+                System.out.println("Status: Pending");
+            } else if (trade.getStatus() == 1) {
+                System.out.println("Status: Rejected");
+            }
+
+            //System.out.println("Status: " + trade.getStatus());
         }
 
         int choiceIndex = getMenuChoice("Accept or Reject a Trade", choice);
