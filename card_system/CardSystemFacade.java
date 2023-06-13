@@ -89,13 +89,24 @@ public class CardSystemFacade {
         CardInventory.getInstance().removeCard(card);
     }
 
-    public void buyCardPack(Card card) {
-        if (!account.isAdmin()) {
-            User user = (User) account;
-            user.getCards();
+    public ArrayList<Card> buyCardPack(int league, String packSize) {
+        ArrayList<Card> cardPack = new ArrayList<Card>();
+        if(getCurrentCoinCount() >= 10) {
+           for(int i=0;i<cardPack.size();i++) {
+               cardPack.get(i).equals(CardInventory.getInstance().getRandomCard());
+               ((User)account).addCard(cardPack.get(i));
+            }
         }
-    }
-
+        else {
+            return null;
+        }
+        return cardPack;
+}   
+//return arraylist of cards
+        //accepts int league and string pack size
+        //check to see if has amount of money, if not return null
+        //if yes get random cards and add them to the users deck 
+        //in card inventory create method to get random card. call get random card for some number of times and add to users pack
     public int getCurrentCoinCount() {
         if (!account.isAdmin()) {
             User user = (User) account;

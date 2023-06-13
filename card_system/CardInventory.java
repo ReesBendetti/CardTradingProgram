@@ -1,6 +1,7 @@
 package card_system;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public class CardInventory {
@@ -84,7 +85,13 @@ public class CardInventory {
         }
         return null;
     }
-
+    public Card getRandomCard() {
+        //in card inventory create method to get random card. call get random card for some number of times and add to users pack
+        Random r = new Random();
+        int index = r.nextInt(cards.size());
+        return cards.get(index);
+        
+    }
     public void save(){
         DataWriter.saveCards();
     }
