@@ -175,22 +175,39 @@ public class CardSystemUI {
 
         for (int i = 0; i < proposals.size(); i++) {
             TradeProposal trade = proposals.get(i);
-            User myPlayerName = trade.getSender();
-            User otherPlayerName = trade.getReceiver();
 
             System.out.println("Trade " + (i + 1) + ":");
-            System.out.println("My Player: " + myPlayerName);
-            System.out.println("Other User's Player: " + otherPlayerName);
-            System.out.println("Status: " + trade.getStatus());
+
+            System.out.println("My Players: ");
+            ArrayList<Card> senderCards = trade.getSenderCards();
+            for (int j = 0; j < senderCards.size(); j++) {
+                System.out.println(senderCards.get(j));
+            }
+
+            System.out.println("Other User's Players: ");
+            ArrayList<Card> receiverCards = trade.getReceiverCards();
+            for (int j = 0; j < receiverCards.size(); j++) {
+                System.out.println(receiverCards.get(j));
+            }
+
+            if (trade.getStatus() == -1) {
+                System.out.println("Status: Accepted");
+            } else if (trade.getStatus() == 0) {
+                System.out.println("Status: Pending");
+            } else if (trade.getStatus() == 1) {
+                System.out.println("Status: Rejected");
+            }
+
+            //System.out.println("Status: " + trade.getStatus());
         }
 
         int choiceIndex = getMenuChoice("Accept or Reject a Trade", choice);
 
         if (choiceIndex == 0) {
-            int tradeIndex = getInt("Enter the trade index to accept: ") - 1;
+            int tradeIndex = getInt("Enter the trade number to accept: ") - 1;
             acceptTrade(tradeIndex);
         } else if (choiceIndex == 1) {
-            int tradeIndex = getInt("Enter the trade index to reject: ") - 1;
+            int tradeIndex = getInt("Enter the trade number to reject: ") - 1;
             rejectTrade(tradeIndex);
         }
     }
